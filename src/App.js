@@ -1,9 +1,13 @@
-import './App.css';
+import React from "react"
+import { Route } from "react-router-dom";
+
+import { Auth } from "./pages";
+
 
 function App() {
   return (
     <div className="App">
-      App
+      <Route exact path={["/", "/auth"]} component={Auth} />
     </div>
   );
 }
