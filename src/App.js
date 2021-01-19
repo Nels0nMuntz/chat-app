@@ -7,7 +7,7 @@ import { Auth } from "./pages";
 function App() {
   return (
     <div className="App">
-      <Route exact path={["/", "/auth"]} component={Auth} />
+      <Route exact path={["/", "/login", "/register"]} component={Auth} />
     </div>
   );
 }
