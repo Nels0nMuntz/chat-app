@@ -12,16 +12,37 @@
     }
     .message__text {
       text-align: left;
-      p {
+      & > div {
         max-width: 400px;
         display: inline-block;
         color: white;
         font-size: 14px;
-        line-height: 1.7;
+        line-height: 1.6;
         padding: 13px 17px;
         background-color: var(--blue);
         border-radius: 12px 12px 12px 0px;
         box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.196733);
+      }
+      .message__text_typing{
+        display: none;
+        span{
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #A6BDF0;
+          margin: 5px 3px;
+          animation: typing 1s ease-in-out infinite;
+
+          &:nth-of-type(1){
+            animation-delay: 0;
+          }
+          &:nth-of-type(2){
+            animation-delay: 300ms;
+          }
+          &:nth-of-type(3){
+            animation-delay: 700ms;
+          }
+        }
       }
     }
     .message__check {
@@ -54,6 +75,7 @@
     }
   }
 }
+
 .message.incoming-message {
   display: flex;
   justify-content: flex-end;
@@ -68,7 +90,6 @@
   }
   .message__text {
     order: 0;
-    text-align: right;
   }
   .message__avatar {
     order: 1;
@@ -76,7 +97,7 @@
   }
   .message__content {
     .message__text {
-      p {
+      & > div {
         color: #202020;
         background: white;
         border: 1px solid #ececec;
@@ -89,5 +110,26 @@
   }
   .message__date {
     text-align: right;
+  }
+}
+
+.message.typing-message{
+  .message__text > div{
+    background: #E5EDFF;
+    .message__text_typing{
+      display: flex;
+    }
+  }
+}
+
+@keyframes typing{
+  0%{
+    opacity: 0.15;
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0.15;
   }
 }

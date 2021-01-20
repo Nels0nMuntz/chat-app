@@ -17,12 +17,6 @@ const LoginForm = () => {
             if (!values[value]) errors[value] = 'Поле обязательное для заполнения'
         };
         if (values["userEmail"] && !patterns.email.test(values["userEmail"])) errors["userEmail"] = 'Неверный формат E-mail';
-
-        if(values["userPassword"] && ((values["userPassword"].length < 8) || (values["userPassword"].length > 20))){
-            errors["userPassword"] = 'Длина пароля 8-20 символов';
-        }else if(values["userPassword"] && !patterns.password.test(values["userPassword"])){
-            errors["userPassword"] = 'Пароль должен содержать заглавные и строчные символы латинского алфавита и цифры';
-        };
         
         return errors;
     };
@@ -55,7 +49,7 @@ const LoginForm = () => {
                             />
                             <LoginFormField
                                 name="userPassword"
-                                type="text"
+                                type="password"
                                 placeholder="Пароль"
                                 className="auth-form__field"
                             />

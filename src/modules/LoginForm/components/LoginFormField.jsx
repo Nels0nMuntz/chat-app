@@ -5,8 +5,6 @@ import classnames from 'classnames'
 
 const LoginFormField = ({ ...props }) => {
 
-    console.log(props);
-
     const [field, meta] = useField(props);
     const faild = meta.error && meta.touched ? true : false;
 

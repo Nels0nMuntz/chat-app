@@ -1,28 +1,34 @@
 import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types';
-import distanceInWordsToNow from 'date-fns/formatDistanceToNow';
-import ruLocale from "date-fns/locale/ru";
+
+import { Check, Time } from '../../components';
 
 import './Message.scss'
-import readed from './../../assets/images/checked.svg'
-import noReaded from './../../assets/images/no-checked.svg'
 
 
-const Message = ({ avatar, text, date, isOwn, isReaded, attachments }) => {
+const Message = ({ avatar, text, date, attachments, isOwn, isReaded, isTyping }) => {
     return (
         <div className={classnames(
             "message",
-            !isOwn && "incoming-message"
+            !isOwn && "incoming-message",
+            isTyping && "typing-message"
         )}>
             <div className="message__container">
                 <div className="message__avatar">
                     <img src={avatar} alt="avatar" />
                 </div>
                 <div className="message__content">
-                    {text && (
+                    {(text || isTyping) && (
                         <div className="message__text">
-                            <p>{text}</p>
+                            <div>
+                                {text}
+                                <div className="message__text_typing">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
                         </div>
                     )}
                     {attachments && (
@@ -37,32 +43,27 @@ const Message = ({ avatar, text, date, isOwn, isReaded, attachments }) => {
                 </div>
                 {!isOwn && (
                     <div className="message__check">
-                        {isReaded ? (
-                            <img src={readed} alt="check" />
-                        ) : (
-                                <img src={noReaded} alt="check" />
-                            )}
+                        {!isTyping && <Check isReaded={isReaded} />}                        
                     </div>
                 )}
-                <div className="message__date">
-                    {distanceInWordsToNow(new Date(date), { addSuffix: true, locale: ruLocale })}
-                </div>
+                {(date && !isTyping) && (
+                    <div className="message__date">
+                        <Time date={date} />             
+                    </div>
+                )}
             </div>
         </div>
     )
 };
 
-Message.defaultProps = {
-    isReaded: PropTypes.bool,
-}
-
 Message.propTypes = {
-    avatar: PropTypes.string.isRequired,
+    avatar: PropTypes.string,
     text: PropTypes.string,
-    date: PropTypes.string.isRequired,
+    date: PropTypes.string,
+    attachments: PropTypes.array,
     isOwn: PropTypes.bool.isRequired,
     isReaded: PropTypes.bool,
-    attachments: PropTypes.arrayOf(PropTypes.object),
-}
+    isTyping: PropTypes.bool,
+};
 
 export default Message;
