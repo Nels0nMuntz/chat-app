@@ -1,26 +1,19 @@
 .message {
-  padding: 5px;
-
   .message__container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .message__row {
-    display: flex;
-    align-items: flex-end;
-
+    display: grid;
+    grid-template-columns: 45px max-content 25px;
     .message__avatar {
+      align-self: flex-end;
       img {
         width: 35px;
         height: 35px;
         border-radius: 50%;
       }
     }
-    .message__content {
-      max-width: 400px;
-      margin: 0 0 0 15px;
-      .message__text p {
+    .message__text {
+      text-align: left;
+      p {
+        max-width: 400px;
         display: inline-block;
         color: white;
         font-size: 14px;
@@ -30,60 +23,71 @@
         border-radius: 12px 12px 12px 0px;
         box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.196733);
       }
+    }
+    .message__check {
+      align-self: flex-end;
+      text-align: right;
+    }
+    .message__attachment {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
 
-      .message__attachment {
-        display: flex;
-        align-items: center;
-        margin-top: 10px;
+      .attachment-list__item {
+        margin-right: 6px;
+        cursor: pointer;
+        &:last-child {
+          margin-right: 0;
+        }
 
-        .attachment-list__item {
-          margin-right: 6px;
-          cursor: pointer;
-          &:last-child {
-            margin-right: 0;
-          }
-
-          img {
-            border-radius: 6px;
-          }
+        img {
+          border-radius: 6px;
         }
       }
     }
-    .message__check {
-      margin-right: 10px;
-    }
     .message__date {
-      margin: 10px 0 0 48px;
+      margin-top: 10px;
+      grid-column: 2 / 3;
+      grid-row: 2;
       font-size: 12px;
       opacity: 0.4;
     }
   }
 }
-
 .message.incoming-message {
+  display: flex;
+  justify-content: flex-end;
 
-    .message__container {
-      align-items: flex-end;
+  .message__container {
+    grid-template-columns: 25px max-content 45px;
+  }
 
-      .message__row:first-child{
-          flex-direction: row-reverse;
-      }
-      .message__content{
-          margin: 0 15px 0 0;
-          .message__text{
-              text-align: right;
-              p{
-                color: #202020;
-                background: white;
-                border: 1px solid #ECECEC;
-                border-radius: 12px 12px 0px 12px;
-              }
-          }
-      }
-      .message__date {
-        margin: 10px 50px 0 0;
-        font-size: 12px;
-        opacity: 0.4;
+  .message__check {
+    text-align: left;
+    order: -1;
+  }
+  .message__text {
+    order: 0;
+    text-align: right;
+  }
+  .message__avatar {
+    order: 1;
+    text-align: right;
+  }
+  .message__content {
+    .message__text {
+      p {
+        color: #202020;
+        background: white;
+        border: 1px solid #ececec;
+        border-radius: 12px 12px 0px 12px;
       }
     }
+    .message__attachment {
+      justify-content: flex-end;
+    }
+  }
+  .message__date {
+    text-align: right;
+  }
 }
