@@ -7,7 +7,7 @@ import { InfoCircleTwoTone } from '@ant-design/icons';
 
 const RegisterForm = () => {
 
-    const success = true;
+    const success = false;
 
     const patterns = {
         password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=(.*[a-zA-Z]){4}).{8,20}$/,
