@@ -16,7 +16,7 @@
         }
 
         .chat__sidebar{
-            flex: 0 0 320px;
+            width: 320px;
             border-right: 1px solid #F7F7F7;
 
             .sidebar__header{
@@ -35,8 +35,12 @@
                 }
             }
             .sidebar__contacts{
+                padding: 0 20px;
                 .sidebar-contacts__search{
-                    padding: 20px 22px;
+                    padding: 20px 0;
+                }
+                .sidebar-contacts__list{
+                    padding-top: 15px;
                 }
             }
         }

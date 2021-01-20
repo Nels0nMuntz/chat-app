@@ -6,6 +6,7 @@ import { Contacts, Messages, Status } from '../../components'
 
 import './Home.scss'
 import makeDialogIcon from './../../assets/images/make-dialog.svg'
+import ContactsItem from '../../components/Contacts/ContactsItem';
 
 
 const Home = () => {
@@ -49,7 +50,7 @@ const Home = () => {
                             />
                         </div>
                         <div className="sidebar-contacts__list user-list">
-                            <Contacts/>
+                            <ContactsItem/>
                         </div>
                     </div>
                 </aside>

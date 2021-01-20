@@ -1,0 +1,63 @@
+.contact {
+    display: flex;
+    align-items: center;
+
+    .contact__avatar {
+        flex: 0 0 42px;
+        margin-right: 12px;
+    }
+    .contact__info {
+        flex: 1 1 0;
+
+        .contact__row {
+            display: flex;
+            align-items: center;
+
+            &:first-child {
+                margin-bottom: 8px;
+            }
+
+            .flex-flexible {
+                flex: 1;
+            }
+
+            .flex-fixed {
+                flex: 0;
+                margin-left: auto;
+            }
+
+            .contact__fulname {
+                max-width: 155px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-weight: 500;
+            }
+            .contact__text {
+                max-width: 195px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                opacity: 0.4;
+                line-height: 1.5;
+            }
+
+            .contact__date {
+                font-size: 12px;
+                opacity: 0.4;
+            }
+
+            .contact__check{
+                min-width: 20px;
+                height: 20px;
+                font-size: 13px;
+                text-align: center;
+                line-height: 20px;
+
+                color: white;
+                background-color: var(--red-100);
+                border-radius: 50%;
+            }
+        }
+    }
+}
