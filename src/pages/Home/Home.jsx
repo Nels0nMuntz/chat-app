@@ -1,13 +1,30 @@
 import React from 'react'
-import { TeamOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { TeamOutlined, EllipsisOutlined, SearchOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
 
-import { Message, Messages, Status } from '../../components'
+import { Contacts, Messages, Status } from '../../components'
 
 import './Home.scss'
 import makeDialogIcon from './../../assets/images/make-dialog.svg'
 
 
 const Home = () => {
+
+    const contacts = [
+        {
+            user: {
+                avatar: "https://sun1-89.userapi.com/c850424/v850424867/f6869/B-F_i2BilOA.jpg?ava=1",
+                fullname: "Jack the Ripper",
+                isOnline: false,
+            },
+            lastMessage: {
+                text: "Ut elit enim enim cupidatat ut velit eiusmod. Duis sint labore non velit elit qui do sunt in non nisi. Consectetur deserunt irure magna mollit aute.",
+                created: "Wed Sep 19 1979 20:02:43 GMT+0000 (UTC)",
+            },
+            unreaded: 3,
+        }
+    ]
+
     return (
         <section className="home">
             <div className="chat">
@@ -21,6 +38,20 @@ const Home = () => {
                             <img src={makeDialogIcon} alt="make dialog" />
                         </div>
                     </header>
+                    <div className="sidebar__contacts sidebar-contacts">
+                        <div className="sidebar-contacts__search">
+                            <Input
+                                size="large"
+                                placeholder="Поиск среди контактов"
+                                prefix={<SearchOutlined style={{ opacity: '0.8' }} />}
+                                bordered={false}
+                                style={{ background: '#F7F8F9', fontSize: '14px' }}
+                            />
+                        </div>
+                        <div className="sidebar-contacts__list user-list">
+                            <Contacts/>
+                        </div>
+                    </div>
                 </aside>
                 <main className="chat__dialog dialog">
                     <header className="dialog__header header-dialog">
