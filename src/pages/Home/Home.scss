@@ -35,7 +35,10 @@
                 }
             }
             .sidebar__contacts{
+                height: 100%;
                 max-height: calc(100vh - 60px);
+                overflow: auto;
+
                 .sidebar-contacts__search{
                     padding: 20px 20px 35px;
 
