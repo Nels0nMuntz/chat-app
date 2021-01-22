@@ -1,204 +1,172 @@
 {
-    "messages": [
-        {
-            "_id": "6009e45e251fd8e9ea9abaa9",
-            "text": "Nulla pariatur eu esse ea mollit ad sunt pariatur ullamco deserunt sint incididunt officia. Id velit ea sit cupidatat occaecat laborum mollit dolor excepteur do in. Mollit pariatur veniam magna pariatur consectetur deserunt consequat.",
-            "created": "Fri Oct 29 1971 22:00:25 GMT+0000 (UTC)",
-            "user": {
-                "_id": "3<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45eca07ca35417a09c0",
-            "text": "Ea enim eu fugiat consectetur dolore ex magna dolore aliqua deserunt est velit fugiat. Excepteur pariatur nostrud veniam exercitation. Ex culpa sunt aliquip nostrud mollit dolore aliquip ipsum in nostrud officia sint minim ipsum.",
-            "created": "Wed Mar 23 1977 23:53:45 GMT+0000 (UTC)",
-            "user": {
-                "_id": "2<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e7a2676d4def1fac9",
-            "text": "Ipsum et labore irure voluptate sit eiusmod consequat nulla et. Sit magna consequat officia sit. Sit aliquip aute sit quis adipisicing mollit.",
-            "created": "Sun Oct 14 2001 13:33:11 GMT+0000 (UTC)",
-            "user": {
-                "_id": "3<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e3bb1efbe85ee121f",
-            "text": "Proident commodo ex culpa duis commodo mollit proident. Minim officia culpa ut Lorem irure in occaecat. Est sint ad ut eu in.",
-            "created": "Sat Sep 26 1970 19:08:02 GMT+0000 (UTC)",
-            "user": {
-                "_id": "1<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e01d94b778e359a11",
-            "text": "Est et quis mollit laboris. In sint irure culpa est deserunt proident dolore voluptate eu exercitation eiusmod minim nostrud. Ut eu sunt veniam ea non magna do cillum qui duis enim commodo consequat.",
-            "created": "Sat Oct 09 2004 15:12:21 GMT+0000 (UTC)",
-            "user": {
-                "_id": "3<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45ec844ec2fa6587896",
-            "text": "Anim ut enim velit qui. Incididunt enim exercitation consequat adipisicing reprehenderit. Ipsum exercitation sint deserunt nisi aliquip velit culpa veniam minim magna.",
-            "created": "Thu Feb 04 2010 22:39:08 GMT+0000 (UTC)",
-            "user": {
-                "_id": "4<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45ef365fea4859ed5fb",
-            "text": "Occaecat magna enim qui sunt amet tempor ipsum ullamco deserunt anim cupidatat mollit irure. Sit laboris eu sit do mollit sint et nulla consequat id do sit. Cillum incididunt cupidatat enim dolor sit consequat commodo voluptate excepteur.",
-            "created": "Tue May 18 2004 14:34:07 GMT+0000 (UTC)",
-            "user": {
-                "_id": "2<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45ee221b8c9d937597b",
-            "text": "Ut aliqua velit adipisicing Lorem sint ex adipisicing et aliqua. Consectetur deserunt ex quis elit aute id dolore excepteur consectetur adipisicing cillum ad. Sit quis magna ea ipsum.",
-            "created": "Sat Oct 11 2003 10:27:12 GMT+0000 (UTC)",
-            "user": {
-                "_id": "3<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45ea86dea6e88ef80cb",
-            "text": "Consequat quis minim pariatur cupidatat eu exercitation nisi consectetur proident incididunt velit. Amet qui quis irure anim sit reprehenderit. Exercitation quis dolore voluptate commodo fugiat.",
-            "created": "Tue Jan 28 1992 21:02:57 GMT+0000 (UTC)",
-            "user": {
-                "_id": "3<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e6927a03112a836a9",
-            "text": "Duis mollit in sint amet exercitation enim exercitation. Sint ipsum ipsum sunt duis do fugiat ipsum reprehenderit sunt. Occaecat proident ex nostrud excepteur commodo labore enim ad duis ex reprehenderit culpa excepteur qui.",
-            "created": "Tue Jun 04 1985 22:07:59 GMT+0000 (UTC)",
-            "user": {
-                "_id": "2<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e30ae3eb580e19429",
-            "text": "Do magna aliqua cupidatat officia pariatur irure. Nisi dolor ex sit proident eu laboris aute cillum. Dolore mollit pariatur enim commodo ullamco labore est nulla cillum labore aliqua nostrud.",
-            "created": "Tue Jul 19 2011 02:10:25 GMT+0000 (UTC)",
-            "user": {
-                "_id": "1<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e5c1bd354a7d31f4f",
-            "text": "Lorem enim ad qui nulla ad sint reprehenderit qui dolor qui. Ipsum elit veniam elit amet commodo qui veniam enim ut labore nulla commodo. Ad irure reprehenderit ad ipsum.",
-            "created": "Sat Jun 30 2001 23:39:54 GMT+0000 (UTC)",
-            "user": {
-                "_id": "1<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45eba32da272fb42d45",
-            "text": "Commodo ipsum sint aute veniam labore deserunt consectetur in qui. Et ex consectetur laboris eiusmod nulla duis et id laborum fugiat deserunt deserunt ut. Minim consequat aute ullamco eiusmod.",
-            "created": "Thu May 30 1991 03:39:50 GMT+0000 (UTC)",
-            "user": {
-                "_id": "1<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e113cfdc6b4159dfd",
-            "text": "Magna nulla minim et esse qui pariatur irure tempor ipsum mollit aliqua. Enim est elit esse ea commodo. Duis excepteur labore excepteur ut ea.",
-            "created": "Wed Nov 08 2000 09:51:18 GMT+0000 (UTC)",
-            "user": {
-                "_id": "2<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45eb7bccfa314cf4f5f",
-            "text": "Ut ex minim quis irure deserunt aute anim nisi consectetur nisi enim excepteur. Id enim eu aliqua fugiat commodo est incididunt ipsum ut. Ea eiusmod excepteur enim Lorem culpa fugiat deserunt labore quis dolore.",
-            "created": "Fri Apr 27 1973 03:16:19 GMT+0000 (UTC)",
-            "user": {
-                "_id": "2<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e6451dc40c8f1af66",
-            "text": "Esse velit est sint occaecat. Quis sit occaecat velit et sunt. Dolor aliqua magna commodo ea consectetur adipisicing sit sit ea.",
-            "created": "Sun Nov 04 1984 21:14:32 GMT+0000 (UTC)",
-            "user": {
-                "_id": "1<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e4dca4260f5cc8821",
-            "text": "Do ex proident laborum aliquip aliqua occaecat laboris aliqua incididunt ad officia nostrud. Eiusmod anim veniam cillum laborum enim Lorem nulla quis sint adipisicing commodo et. Eiusmod deserunt nostrud do anim.",
-            "created": "Sun Jan 13 1991 22:19:00 GMT+0000 (UTC)",
-            "user": {
-                "_id": "3<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45eda736021baa865d9",
-            "text": "Sunt sit culpa fugiat ipsum. Velit in laboris ea minim qui. Ea veniam minim amet adipisicing.",
-            "created": "Thu Jun 21 1973 01:24:03 GMT+0000 (UTC)",
-            "user": {
-                "_id": "4<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45e9b35d6e953ce8327",
-            "text": "Commodo non ea excepteur ad qui ullamco laboris dolore. Dolor esse mollit excepteur occaecat qui aliqua veniam mollit enim dolore magna eu. Deserunt incididunt dolor sunt dolore fugiat labore exercitation exercitation.",
-            "created": "Thu Jan 12 2006 21:58:35 GMT+0000 (UTC)",
-            "user": {
-                "_id": "2<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
-        },
-        {
-            "_id": "6009e45ed545ecd6fc4fa034",
-            "text": "Nostrud elit officia Lorem culpa et. Culpa sit ipsum voluptate veniam aliqua minim ad Lorem cupidatat do sint esse ut officia. Officia aliquip laboris aute voluptate.",
-            "created": "Sat May 20 1995 21:54:55 GMT+0000 (UTC)",
-            "user": {
-                "_id": "2<TypeError: this.object is not a function>",
-                "fullname": "<TypeError: this.firstname is not a function> <TypeError: this.lastname is not a function>",
-                "avatar": null
-            }
+    "dialogs": [
+      {
+        "_id": "16e68d13b2678d793d340b5fb0c79297d",
+        "text": "Duis do eu culpa ad mollit sit minim quis sunt esse anim. Ex velit sint consequat ipsum fugiat irure consequat ut. Do tempor voluptate magna ipsum id pariatur.",
+        "created_at": "Sun Nov 03 1974 18:49:32 GMT+0000 (UTC)",
+        "user": {
+          "_id": "6e68d13b2678d793d340b5fb0c79297d",
+          "fullname": "Perez Jacobson",
+          "avatar": null
         }
+      },
+      {
+        "_id": "41b4cc8ffc01aef863dfa8afcbbd0986",
+        "text": "Lorem aute in culpa adipisicing aute aliquip nulla quis irure ea enim ullamco sunt. Consequat deserunt ipsum officia ut officia officia ut tempor tempor qui velit voluptate aliqua. Ad aliquip tempor tempor sint commodo esse deserunt et elit aute Lorem in et.",
+        "created_at": "Thu Apr 21 1977 23:23:36 GMT+0000 (UTC)",
+        "user": {
+          "_id": "41b4cc8ffc01aef863dfa8afcbbd0986",
+          "fullname": "Fitzgerald Eaton",
+          "avatar": null
+        }
+      },
+      {
+        "_id": "e079c8cddf392c639c7e77481717352a",
+        "text": "Irure proident consequat ipsum dolore do Lorem mollit ad sit id. Consequat non exercitation sunt nostrud laborum consequat quis ea. Eiusmod occaecat excepteur do occaecat elit id aliqua dolore deserunt ea.",
+        "created_at": "Wed May 15 1985 16:40:53 GMT+0000 (UTC)",
+        "user": {
+          "_id": "e079c8cddf392c639c7e77481717352a",
+          "fullname": "Stanton Alford",
+          "avatar": null
+        }
+      },
+      {
+        "_id": "6e68d13b2678d793d340b5fb0c79297d",
+        "text": "Ut elit enim enim cupidatat ut velit eiusmod. Duis sint labore non velit elit qui do sunt in non nisi. Consectetur deserunt irure magna mollit aute.",
+        "created_at": "Wed Sep 19 1979 20:02:43 GMT+0000 (UTC)",
+        "user": {
+          "_id": "6e68d13b2678d793d340b5fb0c79297d",
+          "fullname": "Preston Cohen",
+          "avatar": null
+        }
+      },
+      {
+        "_id": "f31af49941293524c86c746c10e72f0d",
+        "text": "Eiusmod commodo velit proident sint enim. Commodo cupidatat laboris anim nisi id dolor fugiat sint adipisicing. Anim exercitation enim consequat duis.",
+        "created_at": "Sun Jun 25 2017 16:15:58 GMT+0000 (UTC)",
+        "user": {
+          "_id": "f31af49941293524c86c746c10e72f0d",
+          "fullname": "Lenore Vinson",
+          "avatar": null
+        }
+      },
+      {
+        "_id": "2f0405c6a12d20a5acbd91db41c016b8",
+        "text": "Minim ad consectetur consectetur laborum do consequat Lorem nisi mollit ex aute anim consectetur voluptate. Nostrud Lorem velit duis ut esse cillum exercitation occaecat. Adipisicing labore aliqua in ut fugiat labore magna.",
+        "created_at": "Wed Apr 01 1970 14:35:56 GMT+0000 (UTC)",
+        "user": {
+          "_id": "2f0405c6a12d20a5acbd91db41c016b8",
+          "fullname": "Audrey Lopez",
+          "avatar": null
+        }
+      },
+      {
+        "_id": "24c931d4acbec73f8d5f0265c8f1d413",
+        "text": "Mollit officia amet commodo labore laborum exercitation irure. Excepteur reprehenderit occaecat ipsum nisi consequat duis consectetur mollit occaecat qui officia. Et consequat eiusmod duis eu eiusmod veniam cupidatat mollit laboris est.",
+        "created_at": "Sun Jun 25 2006 06:37:23 GMT+0000 (UTC)",
+        "user": {
+          "_id": "24c931d4acbec73f8d5f0265c8f1d413",
+          "fullname": "Mona Benton",
+          "avatar": null
+        }
+      },
+      {
+        "_id": "cb20a36a653a59a3854c00d6c61ab3c8",
+        "text": "Quis cillum cillum pariatur Lorem excepteur proident consectetur sit elit est quis eu in. Sint qui labore quis quis cupidatat dolore laborum commodo dolore nisi dolor commodo et incididunt. Proident reprehenderit Lorem occaecat nisi laborum tempor est incididunt.",
+        "created_at": "Wed Apr 24 2013 15:52:05 GMT+0000 (UTC)",
+        "user": {
+          "_id": "cb20a36a653a59a3854c00d6c61ab3c8",
+          "fullname": "Bethany Oconnor",
+          "avatar": null
+        }
+      },
+      {
+        "_id": "140ed62cb052f591a5f2999288357281",
+        "text": "Ad proident amet minim officia consectetur aliqua minim exercitation. Quis dolor pariatur eu excepteur. Sit adipisicing laboris sit nostrud in velit enim occaecat ipsum.",
+        "created_at": "Thu Sep 23 1982 04:11:53 GMT+0000 (UTC)",
+        "user": {
+          "_id": "140ed62cb052f591a5f2999288357281",
+          "fullname": "Tisha Duke",
+          "avatar": null
+        }
+      },
+      {
+        "_id": "fa568cb4abc8dbb53f03432442481e22",
+        "text": "Ipsum nulla et in cillum ea commodo cupidatat proident. Id ipsum consequat minim ullamco reprehenderit quis aliqua duis quis. Anim eu aliquip laboris velit aliquip ea.",
+        "created_at": "Mon May 02 1983 03:30:11 GMT+0000 (UTC)",
+        "user": {
+          "_id": "fa568cb4abc8dbb53f03432442481e22",
+          "fullname": "Irma Lester",
+          "avatar": null
+        }
+      }
+    ],
+    "messages": [
+      {
+        "_id": "35ce83ca80a9906817c95cbe0",
+        "text": ":santa: Ea deserunt exercitation sit irure aliqua ea. Nostrud est veniam eiusmod cillum duis exercitation veniam ad. Commodo occaecat veniam tempor ad dolor.",
+        "created_at": "Mon Jul 17 1978 15:23:39 GMT+0000 (UTC)",
+        "user": {
+          "_id": "35ce83ca8dbf6c8e9d04dfe95",
+          "fullname": "Stafford Whitley",
+          "avatar": null
+        },
+        "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+      },
+      {
+        "_id": "35ce83ca8371d66a6490a6629",
+        "text": "Excepteur voluptate reprehenderit duis duis fugiat reprehenderit consectetur nisi. Anim nulla amet aliquip Lorem culpa. Labore voluptate non Lorem irure adipisicing.",
+        "created_at": "Tue Sep 04 1990 21:13:48 GMT+0000 (UTC)",
+        "user": {
+          "_id": "45ce83ca849b6f9d7ac27fe2c",
+          "fullname": "Nettie Cobb",
+          "avatar": null
+        },
+        "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+      },
+      {
+        "_id": "25ce83ca8e64e10b218c412b1",
+        "text": "Est nostrud irure ut cupidatat pariatur qui aliqua excepteur reprehenderit commodo amet. Fugiat dolor cillum esse consequat enim sunt ullamco elit nulla. Dolor elit pariatur in ad nisi sint ea incididunt.",
+        "created_at": "Wed Oct 06 1982 09:45:38 GMT+0000 (UTC)",
+        "user": {
+          "_id": "15ce83ca89d3f3deef8240962",
+          "fullname": "Cole Merritt",
+          "avatar": null
+        },
+        "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+      },
+      {
+        "_id": "45ce83ca83ebd82413d9507c5",
+        "text": "Duis ad nulla in commodo adipisicing reprehenderit aliqua consequat ex anim quis. Veniam sit excepteur consequat non eiusmod dolore sunt sint culpa aute duis id exercitation. Mollit veniam pariatur sint esse eiusmod in deserunt elit enim.",
+        "created_at": "Mon Jun 13 2011 09:20:49 GMT+0000 (UTC)",
+        "user": {
+          "_id": "15ce83ca840b57ddc4c86a9f9",
+          "fullname": "Haley Norman",
+          "avatar": null
+        },
+        "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+      },
+      {
+        "_id": "35ce83ca83f2ba0b7649c43cb",
+        "text": "Привет! 😃",
+        "created_at": "Mon Jun 08 1992 04:57:55 GMT+0000 (UTC)",
+        "user": {
+          "_id": "35ce83ca8f41ffe5a11c0b72c",
+          "fullname": "Jacobs Barry",
+          "avatar": null
+        },
+        "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+      },
+      {
+        "_id": "35ce83ca89d0fdae4548a8a8c",
+        "text": "Ау, ты где? 😒",
+        "created_at": "Tue Oct 27 2009 08:28:44 GMT+0000 (UTC)",
+        "user": {
+          "_id": "15ce83ca8038d9699c179048e",
+          "fullname": "Short Doyle",
+          "avatar": null
+        },
+        "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+      }
     ]
-}
+  }

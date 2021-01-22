@@ -6,9 +6,17 @@ import { DialogInput, Contacts, Messages, Status, CustomScrollbar } from '../../
 
 import './Home.scss'
 import makeDialogIcon from './../../assets/images/make-dialog.svg'
+import { dialogs } from '../../utils/api';
 
 
 const Home = () => {
+
+    const getData = async () => {
+        let promise = await dialogs.getAll();
+        console.log(promise);
+    }
+
+    getData()
 
     return (
         <section className="home">
