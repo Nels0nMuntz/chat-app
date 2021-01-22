@@ -2,7 +2,7 @@ import React from 'react'
 import { TeamOutlined, EllipsisOutlined, SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 
-import { Contacts, Messages, Status } from '../../components'
+import { DialogInput, Contacts, Messages, Status, CustomScrollbar } from '../../components'
 
 import './Home.scss'
 import makeDialogIcon from './../../assets/images/make-dialog.svg'
@@ -24,18 +24,20 @@ const Home = () => {
                         </div>
                     </header>
                     <div className="sidebar__contacts sidebar-contacts">
-                        <div className="sidebar-contacts__search">
-                            <Input
-                                size="large"
-                                placeholder="Поиск среди контактов"
-                                prefix={<SearchOutlined style={{ opacity: '0.8' }} />}
-                                bordered={false}
-                                style={{ background: '#F7F8F9', fontSize: '14px' }}
-                            />
-                        </div>
-                        <div className="sidebar-contacts__list user-list">
-                            <Contacts/>
-                        </div>
+                        <CustomScrollbar>
+                            <div className="sidebar-contacts__search">
+                                <Input
+                                    size="large"
+                                    placeholder="Поиск среди контактов"
+                                    prefix={<SearchOutlined style={{ opacity: '0.8' }} />}
+                                    bordered={false}
+                                    style={{ background: '#F7F8F9', fontSize: '14px' }}
+                                />
+                            </div>
+                            <div className="sidebar-contacts__list user-list">
+                                <Contacts />
+                            </div>
+                        </CustomScrollbar>
                     </div>
                 </aside>
                 <main className="chat__dialog dialog">
@@ -48,80 +50,18 @@ const Home = () => {
                             <EllipsisOutlined style={{ fontSize: '30px', opacity: '0.5', cursor: 'pointer' }} />
                         </div>
                     </header>
-                    <div className="dialog__messages">
-                        <Messages
-                            list={[]}
-                        />
-                    </div>
-                    {/* <Message
-                        avatar="https://pp.userapi.com/c846017/v846017841/18957c/1iVH9FKXi4E.jpg?ava=1"
-                        text="Мы тут недавно войска Ариовиста разбили, чуваки хотели закрепиться на галльских землях, лол 🌝"
-                        date="Sun Apr 21 2019 21:55:29"
-                        attachments={[
-                            {
-                                filename: "image.jpg",
-                                url: "https://source.unsplash.com/100x100/?random=1&nature,water"
-                            },
-                            {
-                                filename: "image.jpg",
-                                url: "https://source.unsplash.com/100x100/?random=2&nature,water"
-                            },
-                            {
-                                filename: "image.jpg",
-                                url: "https://source.unsplash.com/100x100/?random=3&nature,water"
-                            }
-                        ]}
-                        isReaded={false}
-                        isOwn={true}
-                    />
-                    <Message
-                        avatar="https://sun1-89.userapi.com/c850424/v850424867/f6869/B-F_i2BilOA.jpg?ava=1"
-                        text="Салам, брат Цезарь!"
-                        date="Sun Apr 21 2019 21:55:29"
-                        attachments={[
-                            {
-                                filename: "image.jpg",
-                                url: "https://source.unsplash.com/100x100/?random=1&nature,water"
-                            },
-                            {
-                                filename: "image.jpg",
-                                url: "https://source.unsplash.com/100x100/?random=2&nature,water"
-                            },
-                            {
-                                filename: "image.jpg",
-                                url: "https://source.unsplash.com/100x100/?random=3&nature,water"
-                            }
-                        ]}
-                        isReaded={true}
-                        isOwn={false}
-                    />
-                    <Message
-                        avatar="https://pp.userapi.com/c846017/v846017841/18957c/1iVH9FKXi4E.jpg?ava=1"
-                        text="Hello World!"
-                        date="Sun Apr 21 2019 21:59:29"
-                        isReaded={false}
-                        isOwn={true}
-                    />
-                    <Message
-                        avatar="https://sun1-89.userapi.com/c850424/v850424867/f6869/B-F_i2BilOA.jpg?ava=1"
-                        attachments={[
-                            {
-                                filename: "image.jpg",
-                                url: "https://source.unsplash.com/100x100/?random=1&nature,water"
-                            }
-                        ]}
-                        date="Sun Apr 21 2020 21:59:29"
-                        isReaded={false}
-                        isOwn={false}
-                    />
-                    <Message
-                        avatar="https://pp.userapi.com/c846017/v846017841/18957c/1iVH9FKXi4E.jpg?ava=1"
-                        text=""
-                        date=""
-                        isReaded={false}
-                        isOwn={true}
-                        isTyping={true}
-                    /> */}
+                    <section className="dialog__messages">
+                        <CustomScrollbar>
+                            <div className="dialog__messages-wrapper">
+                                <Messages
+                                    list={[]}
+                                />
+                            </div>
+                        </CustomScrollbar>
+                    </section>
+                    <section className="dialog__input">
+                        <DialogInput />
+                    </section>
                 </main>
             </div>
         </section>

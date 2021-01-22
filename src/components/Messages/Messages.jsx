@@ -78,7 +78,32 @@ const Messages = ({ list }) => {
             isReaded: true,
             isOwn: false,
             isTyping: true,
-        }
+        },
+        {
+            avatar: "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjN8fHBlcnNvbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            date: "Sun Apr 21 2019 21:55:29",
+            text: "Всё норм! Флот построили на Лауре. Галлов добили после вашего нападения. Спс! 🔥",
+            isOwn: true,
+        },
+        {
+            avatar: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            date: "Sun Apr 21 2019 21:55:29",
+            attachments: [
+                {
+                    filename: "image.jpg",
+                    url: "https://source.unsplash.com/100x100/?random=1&nature,water"
+                },
+                {
+                    filename: "image.jpg",
+                    url: "https://source.unsplash.com/100x100/?random=2&nature,water"
+                },
+                {
+                    filename: "image.jpg",
+                    url: "https://source.unsplash.com/100x100/?random=3&nature,water"
+                }
+            ],
+            isOwn: true
+        },
     ]
 
     return list ? (

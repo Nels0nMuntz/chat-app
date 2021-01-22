@@ -1,6 +1,12 @@
 .contact {
     display: flex;
     align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #F3F7FF;
+    }
 
     .contact__avatar {
         flex: 0 0 42px;
@@ -64,6 +70,10 @@
 
 .contacts__list{
     li{
-        margin-bottom: 25px;
+        margin-bottom: 10px;
+
+        &:last-child{
+            margin-bottom: 0;
+        }
     }
 }
