@@ -6,25 +6,9 @@ import { Contacts, Messages, Status } from '../../components'
 
 import './Home.scss'
 import makeDialogIcon from './../../assets/images/make-dialog.svg'
-import ContactsItem from '../../components/Contacts/ContactsItem';
 
 
 const Home = () => {
-
-    const contacts = [
-        {
-            user: {
-                avatar: "https://sun1-89.userapi.com/c850424/v850424867/f6869/B-F_i2BilOA.jpg?ava=1",
-                fullname: "Jack the Ripper",
-                isOnline: false,
-            },
-            lastMessage: {
-                text: "Ut elit enim enim cupidatat ut velit eiusmod. Duis sint labore non velit elit qui do sunt in non nisi. Consectetur deserunt irure magna mollit aute.",
-                created: "Wed Sep 19 1979 20:02:43 GMT+0000 (UTC)",
-            },
-            unreaded: 3,
-        }
-    ]
 
     return (
         <section className="home">
@@ -50,7 +34,7 @@ const Home = () => {
                             />
                         </div>
                         <div className="sidebar-contacts__list user-list">
-                            <ContactsItem/>
+                            <Contacts/>
                         </div>
                     </div>
                 </aside>
