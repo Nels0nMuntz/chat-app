@@ -1,8 +1,9 @@
 const initialState = {
-    items: []
+    items: [],
+    currentDialog: null,
 };
 
-const dialogsReducer = (state = initialState, { type, payload }) => {
+const dialogs = (state = initialState, { type, payload }) => {
     switch (type) {
         case 'DIALOGS:SET_ITEMS':
             return { ...state, items: payload }
@@ -11,4 +12,4 @@ const dialogsReducer = (state = initialState, { type, payload }) => {
     }
 };
 
-export default dialogsReducer;
+export default dialogs;

@@ -1,7 +1,7 @@
 import { axios } from "../../core";
 
-const api = {
+const dialogsApi = {
     getAll: () => axios.get("/dialogs")
 };
 
-export default api;
+export default dialogsApi;
