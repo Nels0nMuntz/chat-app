@@ -1,29 +1,26 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { dialogsActions } from './../../redux/actions'
+import { Empty } from 'antd';
 
 import ContactsItem from './ContactsItem';
 
 import './Contacts.scss'
 
 
-const Contacts = () => {
-
-    const dispatch = useDispatch()
-
-    const contactsList = useSelector(state => state.dialogs.items);
-
-    React.useEffect(() => {
-        dispatch(dialogsActions.fetchDialogs())
-    }, [])
+const Contacts = ({ dialogs, currentDialogId, onClickDialog }) => { 
 
     return (
         <ul className="contacts__list">
-            {!!contactsList.length && contactsList.map(item => (
+            {!!dialogs.length ? dialogs.map(item => (
                 <li>
-                    <ContactsItem dialog={item}  />
+                    <ContactsItem 
+                        dialog={item} 
+                        onClickDialog={onClickDialog} 
+                        isActive={currentDialogId === item._id}
+                    />
                 </li>
-            ))}
+            )) : (
+                <Empty description="Диалогов нет" />
+            )}
         </ul>
     )
 };

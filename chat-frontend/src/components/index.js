@@ -7,3 +7,4 @@ export { default as Avatar } from './Avatar/Avatar';
 export { default as Contacts } from './Contacts/Contacts';
 export { default as DialogInput } from './DialogInput/DialogInput';
 export { default as CustomScrollbar } from './CustomScrollbar/CustomScrollbar';
+export { default as Preloader } from './Preloader/Preloader';

@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types';
 
-import { Check, Time } from '../../components';
+import { Avatar, Check, Time } from '../../components';
 
 import './Message.scss'
 import wave from './../../assets/images/wave.svg'
@@ -10,7 +10,7 @@ import playBtn from './../../assets/images/play-btn.svg'
 import pauseBtn from './../../assets/images/pause-btn.svg'
 
 
-const Message = ({ avatar, text, date, attachments, audio, isOwn, isReaded, isTyping }) => {
+const Message = ({ text, created_at, user, audio, attachments, isReaded, isOwn, isTyping}) => {
     return (
         <div className={classnames(
             "message",
@@ -20,7 +20,7 @@ const Message = ({ avatar, text, date, attachments, audio, isOwn, isReaded, isTy
         )}>
             <div className="message__container">
                 <div className="message__avatar">
-                    <img src={avatar} alt="avatar" />
+                    <Avatar user={user}/>
                 </div>
                 <div className="message__content">
                     {audio ? (
@@ -56,9 +56,9 @@ const Message = ({ avatar, text, date, attachments, audio, isOwn, isReaded, isTy
                     {!isTyping && <Check isReaded={isReaded} />}
                 </div>
             )}
-            {(date && !isTyping) && (
+            {(created_at && !isTyping) && (
                 <div className="message__date">
-                    <Time date={date} />
+                    <Time date={created_at} />
                 </div>
             )}
         </div>
@@ -66,16 +66,16 @@ const Message = ({ avatar, text, date, attachments, audio, isOwn, isReaded, isTy
     )
 };
 
-Message.propTypes = {
-    avatar: PropTypes.string,
-    text: PropTypes.string,
-    date: PropTypes.string,
-    attachments: PropTypes.array,
-    audio: PropTypes.string,
-    isOwn: PropTypes.bool.isRequired,
-    isReaded: PropTypes.bool,
-    isTyping: PropTypes.bool,
-};
+// Message.propTypes = {
+//     avatar: PropTypes.string,
+//     text: PropTypes.string,
+//     date: PropTypes.string,
+//     attachments: PropTypes.array,
+//     audio: PropTypes.string,
+//     isOwn: PropTypes.bool.isRequired,
+//     isReaded: PropTypes.bool,
+//     isTyping: PropTypes.bool,
+// };
 
 const convertCurrentTime = number => {
     const mins = Math.floor(number / 60);

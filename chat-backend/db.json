@@ -5,7 +5,7 @@
         "text": "Duis do eu culpa ad mollit sit minim quis sunt esse anim. Ex velit sint consequat ipsum fugiat irure consequat ut. Do tempor voluptate magna ipsum id pariatur.",
         "created_at": "Sun Nov 03 1974 18:49:32 GMT+0000 (UTC)",
         "user": {
-          "_id": "6e68d13b2678d793d340b5fb0c79297d",
+          "_id": "16e68d13b2678d793d340b5fb0c79297d",
           "fullname": "Perez Jacobson",
           "avatar": null
         }
@@ -155,7 +155,8 @@
           "fullname": "Jacobs Barry",
           "avatar": null
         },
-        "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+        "dialog": "6e68d13b2678d793d340b5fb0c79297d",
+        "isOwn": true
       },
       {
         "_id": "35ce83ca89d0fdae4548a8a8c",
@@ -166,7 +167,8 @@
           "fullname": "Short Doyle",
           "avatar": null
         },
-        "dialog": "6e68d13b2678d793d340b5fb0c79297d"
+        "dialog": "6e68d13b2678d793d340b5fb0c79297d",
+        "isOwn": true
       }
     ]
   }

@@ -2,7 +2,8 @@ import React from 'react'
 import { TeamOutlined, EllipsisOutlined, SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 
-import { DialogInput, Contacts, Messages, Status, CustomScrollbar } from '../../components'
+import { DialogInput, Status, CustomScrollbar } from '../../components'
+import { Messages, Contacts } from '../../containers'
 
 import './Home.scss'
 import makeDialogIcon from './../../assets/images/make-dialog.svg'

@@ -7,6 +7,7 @@ import App from './App';
 import store from './redux/store';
 
 import 'antd/dist/antd.css';
+import 'emoji-mart/css/emoji-mart.css'
 import './styles/index.scss';
 
 

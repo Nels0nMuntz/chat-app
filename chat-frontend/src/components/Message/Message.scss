@@ -4,6 +4,8 @@
     grid-template-columns: 45px max-content 25px;
     .message__avatar {
       align-self: flex-end;
+      width: 35px;
+      height: 35px;
       img {
         width: 35px;
         height: 35px;

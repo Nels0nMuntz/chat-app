@@ -3,14 +3,18 @@
     align-items: center;
     padding: 10px 20px;
     cursor: pointer;
+    user-select: none;
 
-    &:hover{
+    &:hover,
+    &.contact_active{
         background-color: #F3F7FF;
     }
 
     .contact__avatar {
         flex: 0 0 42px;
         margin-right: 12px;
+        width: 42px;
+        height: 42px;
     }
     .contact__info {
         flex: 1 1 0;

@@ -5,17 +5,20 @@ import generateAvatar from './../../utils/generateAvatar/generateAvatar';
 
 const Wrapper = styled.div`
     position: relative;
+    width: 100%;
+    height: 100%; 
     & .circle-form{
-        width: 42px;
-        height: 42px;
+        width: 100%;
+        height: 100%; 
         border-radius: 50%;
     }
-    & > img{        
+    & > img{       
         object-fit: cover;
     };
     & > div{
-        text-align: center;
-        line-height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 22px;
         font-weight: 700;
         color: white;
@@ -34,7 +37,7 @@ const Avatar = ({ user }) => {
             {hasAvatar ? (
                 <img className="circle-form" src={user.avatar} alt="avatar"/>
             ) : (
-                <div className="circle-form">{user.fullname[0]}</div>
+                <div className="circle-form"><span>{user.fullname[0]}</span></div>
             )}
             <span></span>
         </Wrapper>
