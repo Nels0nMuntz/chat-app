@@ -12,9 +12,9 @@ const app: express.Application = express();
 app.use(bodyParser.json());
 
 const userController = new UserController();
-
+ 
 app.get("/user/:id", userController.index);
 app.post("/user/registration", userController.create);
 app.delete("/user/:id", userController.delete);
 
-app.listen(3005, () => console.log("App listening on port 3005")) 
+app.listen(3005, () => console.log("App listening on port 3005"));
