@@ -1,17 +1,20 @@
 import express from 'express';
 import mongoose from 'mongoose'
-import User from './schemas/User'
+import bodyParser from 'body-parser';
+import { UserController } from './controllers';
 
-mongoose.connect('mongodb://localhost:27017/chat', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/chat', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 const db = mongoose.connection;
 db.on('error', err => console.log(err));
-db.once('open', () => console.log('We are connected'))
+db.once('open', () => console.log('We are connected'));
 
-const app = express();
+const app: express.Application = express();
+app.use(bodyParser.json());
 
-app.get("/", (req: any, res: any) => {
-    res.send("Hallo World!")
-    const user = new User({ email: 'hallo@domain.com', fullname: 'Andrew' });
-    user.save().then((response) => console.log(response));
-});
-app.listen(3005, () => console.log("App listening on port 3005"))
+const userController = new UserController();
+
+app.get("/user/:id", userController.index);
+app.post("/user/registration", userController.create);
+app.delete("/user/:id", userController.delete);
+
+app.listen(3005, () => console.log("App listening on port 3005")) 

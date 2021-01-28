@@ -1,12 +1,23 @@
-import mongoose from 'mongoose';
-import isEmail from 'validator'
+import mongoose, { Schema, Document } from 'mongoose';
+import validator from 'validator';
 
-const UserSchema = new mongoose.Schema(
+interface IUser extends Document{
+    email: string;
+    fullname: string;
+    password: string;
+    confirmed: boolean;
+    confirm_hash?: string;
+    avatar?: string;
+    last_seen?: Date;
+}
+
+const UserSchema = new Schema(
     {
         email: {
             type: String,
             required: 'Email address is required',
-            validate: [isEmail, 'Invalid email']
+            validate: [validator.isEmail, 'Invalid email'],
+            index: { unique: true }
         },
         fullname: {
             type: String,
@@ -29,6 +40,6 @@ const UserSchema = new mongoose.Schema(
     }
 );
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model<IUser>('User', UserSchema);
 
 export default User;
