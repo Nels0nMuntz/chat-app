@@ -1,29 +1,32 @@
 import express from 'express'
 import { DialogModel } from '../models';
-import { Schema } from 'mongoose';
 
 class DialogController {
-    // index(req: express.Request, res: express.Response) {
-    //     const authorId: string = req.params.id;
-    //     DialogModel.find({ author: authorId }, (err, dialogs) => {
-
-    //     })
-    // }
-    index(req: express.Request, res: express.Response) {
-        const authorId = req.params.id;
-
-        DialogModel.find({ author: authorId })
-            .populate(["author", "partner"])
-            .exec(function (err, dialogs) {
-                console.log(err);
-                if (err) {
-                    return res.status(404).json({
-                        message: "Dialogs not found"
-                    });
-                }
-                return res.json(dialogs);
-            });
+    async index(req: express.Request, res: express.Response) {
+        const id = req.params.id;
+        try {
+            let dialog = await DialogModel.findOne({ author: id }).populate(["author", "partner"]);
+            res.status(200).json(dialog)
+        } catch (err) {
+            res.status(404).json({ message: 'Dialog not found', reason: err })
+        }
+    }
+    create(req: express.Request, res: express.Response) {
+        const postData = {
+            author: req.body.author,
+            partner: req.body.partner,
+        };
+        const dialog = new DialogModel(postData);
+        dialog.save()
+            .then(dialog => res.status(200).json(dialog))
+            .catch(err => res.status(404).json({ message: 'Not found', error: err }))
+    }
+    delete = (req: express.Request, res: express.Response) => {
+        const id: string = req.params.id;
+        DialogModel.findByIdAndRemove(id)
+            .then(dialog => { if (dialog) res.status(200).json({ message: "Dialog removed" }) })
+            .catch(err => res.status(404).json({error: err}))
     }
 };
 
-export default DialogController;
+export default DialogController; 
