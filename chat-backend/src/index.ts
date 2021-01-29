@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser';
 import { UserController, DialogController, MessageController } from './controllers';
+import { updateLastSeen } from './middlewares';
 
 mongoose.connect('mongodb://localhost:27017/chat', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
 const db = mongoose.connection;
@@ -14,6 +15,8 @@ app.use(bodyParser.json());
 const userController = new UserController();
 const dialogController = new DialogController();
 const messageController = new MessageController();
+
+app.use(updateLastSeen);
  
 app.get("/user/:id", userController.index);
 app.post("/user/registration", userController.create);

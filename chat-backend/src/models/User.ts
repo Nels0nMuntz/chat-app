@@ -33,7 +33,10 @@ const UserSchema = new Schema(
         },
         confirm_hash: String,
         avatar: String,
-        last_seen: Date
+        last_seen: {
+            type: Date,
+            default: new Date(),
+        }
     },
     {
         timestamps: true
