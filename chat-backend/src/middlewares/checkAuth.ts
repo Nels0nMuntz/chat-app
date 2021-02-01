@@ -1,5 +1,5 @@
 import express from 'express';
-import { verifyJWTToken } from '../utils/jwt';
+import { verifyJWTToken } from '../utils';
 
 const checkAuth = (req: express.Request, res: express.Response, next: express.NextFunction): void => {
     if (req.path === '/user/login' || req.path === '/user/regist') return next();

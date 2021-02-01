@@ -39,7 +39,7 @@ class MessageController {
         const id: string = req.params.id;
         MessageModel.findByIdAndRemove({_id: id})
             .then(() => res.status(200).json({message: "Messasge removed"}))
-            .catch(err => res.status(404).json({message: "Message not found", reason: err}))
+            .catch((err: any) => res.status(404).json({message: "Message not found", reason: err}))
     }
 };
 

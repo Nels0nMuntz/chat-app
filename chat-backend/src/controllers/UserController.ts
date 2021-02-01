@@ -1,14 +1,16 @@
-import { json } from 'body-parser';
 import express from 'express'
+import bcrypt from 'bcrypt';
 import { UserModel } from '../models';
-import { createJWToken } from '../utils/jwt'
+import { createJWToken } from '../utils'
 import { ILoginData } from './../utils/jwt/createJWToken';
+import { validationResult } from 'express-validator';
+import { IUser } from './../models/User';
 
 class UserController {
     index(req: express.Request, res: express.Response) {
         const id: string = req.params.id;
         UserModel.findById(id)
-            .then(user => res.json(user))
+            .then((doc: IUser) => res.json(doc))
             .catch(() => res.status(404).send('User Not Found'))
     }
     create(req: express.Request, res: express.Response) {
@@ -25,8 +27,8 @@ class UserController {
     delete(req: express.Request, res: express.Response) {
         const id: string = req.params.id;
         UserModel.findByIdAndDelete(id)
-            .then(user => { if (user) return res.json({ message: `User ${user.fullname} removed` }) })
-            .catch(err => res.status(404).json({ massege: "Nor Found", reason: err }))
+            .then((doc: IUser) => { if (doc) return res.json({ message: `User ${doc.fullname} removed` }) })
+            .catch((err: any) => res.status(404).json({ massege: "Nor Found", reason: err }))
     }
     login(req: express.Request, res: express.Response) {
         const postData: {
@@ -35,17 +37,24 @@ class UserController {
         } = {
             email: req.body.login,
             password: req.body.password,
-        };        
-        UserModel.findOne({ email: postData.email }, (err: any, user: any) => {
-            if (err) return res.status(404).json({ message: 'User not found' });
-            if (user.password === postData.password) {
+        };
+        
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array() });
+        };
+
+        UserModel.findOne({ email: postData.email }, (err: any, user: IUser) => {
+            if (err || !user) return res.status(404).json({ message: 'User not found' });
+            
+            if (bcrypt.compareSync(postData.password, user.confirm_hash)) {
                 const loginData: ILoginData = {
                     email: user.email
                 };
                 const token = createJWToken(loginData);
                 res.status(200).json({ success: true, token })
             } else {
-                res.status(401).json({ message: "Validation failed. Given email and password aren't matching." })
+                res.status(401).json({ message: "Validation failed. Given email or password aren't matching." })
             }
         });
     }

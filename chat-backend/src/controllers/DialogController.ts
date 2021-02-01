@@ -1,5 +1,6 @@
 import express from 'express'
 import { DialogModel } from '../models';
+import { IDialog } from '../models/Dialog';
 
 class DialogController {
     async index(req: express.Request, res: express.Response) {
@@ -24,8 +25,8 @@ class DialogController {
     delete = (req: express.Request, res: express.Response) => {
         const id: string = req.params.id;
         DialogModel.findByIdAndRemove(id)
-            .then(dialog => { if (dialog) res.status(200).json({ message: "Dialog removed" }) })
-            .catch(err => res.status(404).json({error: err}))
+            .then((dialog: IDialog) => { if (dialog) res.status(200).json({ message: "Dialog removed" }) })
+            .catch((err: any) => res.status(404).json({error: err}))
     }
 };
 

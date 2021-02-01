@@ -1,14 +1,15 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import validator from 'validator';
+import { generateHash } from '../utils';
 export interface IUser extends Document{
     email: string;
     fullname: string;
     password: string;
     confirmed: boolean;
-    confirm_hash?: string;
+    confirm_hash: string;
     avatar?: string;
     last_seen?: Date;
-}
+};
 
 const UserSchema = new Schema(
     {
@@ -30,7 +31,10 @@ const UserSchema = new Schema(
             type: Boolean,
             default: false
         },
-        confirm_hash: String,
+        confirm_hash: {
+            type: String,
+            default: ''
+        },
         avatar: String,
         last_seen: {
             type: Date,
@@ -41,6 +45,17 @@ const UserSchema = new Schema(
         timestamps: true
     }
 );
+
+UserSchema.pre<IUser>('save', function(next) {
+    const user: IUser = this;
+    if(!user.isModified('')) return next();
+    generateHash(user.password)
+        .then(hash => {
+            user.confirm_hash = String(hash);
+            next();
+        })
+        .catch(err => next(err))
+});
 
 const User = mongoose.model<IUser>('User', UserSchema);
 

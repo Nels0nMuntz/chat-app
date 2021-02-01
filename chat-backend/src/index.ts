@@ -11,7 +11,6 @@ db.on('error', err => console.log(err));
 db.once('open', () => console.log('We are connected ot MongoDB'));
 
 const app: express.Application = express();
-app.use(bodyParser.json());
 dotenv.config();
 const PORT = process.env.PORT || 3005;
 
@@ -19,6 +18,7 @@ const userController = new UserController();
 const dialogController = new DialogController();
 const messageController = new MessageController();
 
+app.use(bodyParser.json());
 app.use(updateLastSeen);
 app.use(checkAuth);
  
