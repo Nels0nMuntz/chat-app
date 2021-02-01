@@ -38,7 +38,7 @@ class UserController {
             email: req.body.login,
             password: req.body.password,
         };
-        
+
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array() });
@@ -46,7 +46,7 @@ class UserController {
 
         UserModel.findOne({ email: postData.email }, (err: any, user: IUser) => {
             if (err || !user) return res.status(404).json({ message: 'User not found' });
-            
+
             if (bcrypt.compareSync(postData.password, user.confirm_hash)) {
                 const loginData: ILoginData = {
                     email: user.email
@@ -57,6 +57,14 @@ class UserController {
                 res.status(401).json({ message: "Validation failed. Given email or password aren't matching." })
             }
         });
+    }
+    getMe(req: express.Request, res: express.Response) {
+        const myEmail = req.decodedToken.email;
+        UserModel.findOne({ email: myEmail }, (err: any, user: IUser) => {
+            if (err || !user) res.status(404).json({ message: "User not found by provided token property 'email'" });
+            res.status(200).json(user)
+        });
+
     }
 }
 

@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(updateLastSeen);
 app.use(checkAuth);
  
+app.get("/user/me", userController.getMe);
 app.get("/user/:id", userController.index);
 app.post("/user/regist", userController.create);
 app.delete("/user/:id", userController.delete);

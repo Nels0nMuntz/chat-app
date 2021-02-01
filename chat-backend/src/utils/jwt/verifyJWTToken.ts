@@ -13,7 +13,7 @@ const verifyJWTToken = (token: string): Promise<IDecodedToken> => {
             reject: (err: VerifyErrors) => void
         ) => {
             jwt.verify(token, process.env.JWT_SECRET || "", (err: any, decodedTocen) => {
-                if (err || !decodedTocen) return reject(err);                
+                if (err || !decodedTocen) return reject(err);                  
                 resolve(decodedTocen as IDecodedToken);
             })
         })
