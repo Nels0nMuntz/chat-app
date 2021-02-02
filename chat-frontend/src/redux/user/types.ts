@@ -1,16 +1,11 @@
-type SET_DATA = "SET_DATA";
+type SET_IS_AUTH = "SET_IS_AUTH";
 
 export type InitialState = {
-    data: {
-        token: string | null
-        isAuth: boolean
-    }
+    isAuth: boolean
 };
-export type SetDataAction = {
-    type: SET_DATA
-    payload: {
-        token: string
-    }
+export type SetIsAuthAction = {
+    type: SET_IS_AUTH
+    payload: boolean
 };
 
-export type Action = SetDataAction
+export type Action = SetIsAuthAction

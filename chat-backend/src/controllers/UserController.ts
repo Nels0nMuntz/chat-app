@@ -55,7 +55,7 @@ class UserController {
         UserModel.findOne({ email: postData.email }, (err: any, user: IUser) => {
             if (err || !user) return res.status(404).json({ message: 'User not found' });
 
-            if (bcrypt.compareSync(postData.password, user.confirm_hash)) {
+            if (bcrypt.compareSync(postData.password, user.password_hash)) {
                 const loginData: ILoginData = {
                     email: user.email
                 };

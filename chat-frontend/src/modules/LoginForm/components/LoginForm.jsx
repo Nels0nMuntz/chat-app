@@ -22,9 +22,8 @@ const LoginForm = ({ validate, handleSubmit }) => {
                         validate={validate}
                         onSubmit={handleSubmit}
                     >
-                        {({ isSubmitting, status }) => (
+                        {({ isSubmitting }) => (
                             <Form>
-                                {/* {console.log(status)} */}
                                 <LoginFormField
                                     name="userEmail"
                                     type="email"

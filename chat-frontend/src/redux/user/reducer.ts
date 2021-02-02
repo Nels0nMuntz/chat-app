@@ -1,22 +1,15 @@
 import { InitialState, Action } from "./types";
 
 const initialState: InitialState = {
-    data: {
-        token: null,
-        isAuth: false
-    }
+    isAuth: false
 };
 
 const reducer = (state: InitialState = initialState, action: Action) => {
     switch (action.type) {
-        case "SET_DATA":
+        case "SET_IS_AUTH":
             return {
                 ...state,
-                data: {
-                    ...state.data,
-                    token: action.payload.token,
-                    isAuth: true
-                }
+                isAuth: action.payload
             }
         default:
             return state;

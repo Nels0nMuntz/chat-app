@@ -3,15 +3,15 @@ import { useDispatch } from 'react-redux';
 
 import { axios } from '../../../core'
 import { openNotification } from '../../../utils';
-import { setData } from '../../../redux/user/actions';
+import { setIsAuth } from '../../../redux/user/actions';
 import { default as LoginFormBase } from '../components/LoginForm';
 import { storage } from './../../../core/localStorage';
-import { Redirect } from 'react-router-dom';
+
 
 const LoginForm = () => {
 
     const dispatch = useDispatch();
-    const setUserData = data => setData({ token: data.token })
+    const setAuthStatus = (value) => setIsAuth(value);
 
     const patterns = {
         password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=(.*[a-zA-Z]){4}).{8,20}$/,
@@ -36,33 +36,28 @@ const LoginForm = () => {
         let status = null;
         return axios.post("/user/login", postData)
             .then(({ data }) => {
-                status = {
-                    state: "Success",
-                    token: data.token
-                };
-                setStatus(status);
-                dispatch(setUserData(data))
-                storage.setToken(data.token)
-                axios.defaults.headers["token"] = storage.getToken();
-                <Redirect to=""/>
+                console.log(data);
+                if(data.token){
+                    storage.setToken(data.token)
+                    axios.defaults.headers["token"] = storage.getToken();
+                    dispatch(setAuthStatus(true))
+                }else{
+                    throw new Error("Server response does not contain JWT token");
+                }                
             })
             .catch(err => {
                 status = {
                     state: "Faild",
                     message: err.response.data.message,
                     details: err
-                }
+                };
+                openNotification({
+                    title: "Ошибка",
+                    text: status.message,
+                    type: "error",
+                })
             })
-            .finally(() => {
-                if (status.state === "Faild") {
-                    openNotification({
-                        title: "",
-                        text: status.message,
-                        type: "error",
-                    })
-                }
-                setSubmitting(false);
-            })
+            .finally(() => setSubmitting(false))
     };
 
     return (

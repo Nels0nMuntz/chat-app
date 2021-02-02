@@ -1,8 +1,3 @@
-import { SetDataAction } from "./types";
+import { SetIsAuthAction } from "./types";
 
-export const setData = ({token}: { token: string }): SetDataAction => {
-    return {
-        type: "SET_DATA",
-        payload: { token }
-    }
-};
+export const setIsAuth = (value: boolean): SetIsAuthAction => ({ type: "SET_IS_AUTH", payload: value });

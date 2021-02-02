@@ -5,6 +5,7 @@ export interface IUser extends Document{
     email: string;
     fullname: string;
     password: string;
+    password_hash: string,
     confirmed: boolean;
     confirm_hash: string;
     avatar?: string;
@@ -27,9 +28,11 @@ const UserSchema = new Schema(
             type: String,
             required: true
         },
+        password_hash: {
+            type: String,
+        },
         confirmed: {
             type: Boolean,
-            default: false
         },
         confirm_hash: {
             type: String,
@@ -51,7 +54,7 @@ UserSchema.pre<IUser>('save', function(next) {
     if(!user.isModified('')) return next();
     generateHash(user.password)
         .then(hash => {
-            user.confirm_hash = String(hash);
+            user.password_hash = String(hash);
             next();
         })
         .catch(err => next(err))
