@@ -16,8 +16,8 @@ const LoginForm = ({ validate, handleSubmit }) => {
                 <div className="auth-form__wrapper">
                     <Formik
                         initialValues={{
-                            userEmail: '',
-                            userPassword: '',
+                            email: '',
+                            password: '',
                         }}
                         validate={validate}
                         onSubmit={handleSubmit}
@@ -25,13 +25,13 @@ const LoginForm = ({ validate, handleSubmit }) => {
                         {({ isSubmitting }) => (
                             <Form>
                                 <LoginFormField
-                                    name="userEmail"
+                                    name="email"
                                     type="email"
                                     placeholder="E-mail"
                                     className="auth-form__field"
                                 />
                                 <LoginFormField
-                                    name="userPassword"
+                                    name="password"
                                     type="password"
                                     placeholder="Пароль"
                                     className="auth-form__field"
@@ -40,7 +40,7 @@ const LoginForm = ({ validate, handleSubmit }) => {
                             </Form>
                         )}
                     </Formik>
-                    <Link to='/register' className="auth__link">Зарегистрироваться</Link>
+                    <Link to='/signup' className="auth__link">Зарегистрироваться</Link>
                 </div>
             </div>
         </div>

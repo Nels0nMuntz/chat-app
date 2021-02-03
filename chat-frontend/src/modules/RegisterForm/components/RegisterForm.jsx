@@ -35,41 +35,43 @@ const RegisterForm = ({ success, validate, handleSubmit }) => {
                                 validate={validate}
                                 onSubmit={handleSubmit}
                             >
-                                <Form>
-                                    <RegisterFormField
-                                        name="email"
-                                        type="email"
-                                        placeholder="E-mail"
-                                        className="auth-form__field"
-                                    />
-                                    <RegisterFormField
-                                        name="firstName"
-                                        type="text"
-                                        placeholder="Ваше имя"
-                                        className="auth-form__field"
-                                    />
-                                    <RegisterFormField
-                                        name="lastName"
-                                        type="text"
-                                        placeholder="Ваша фамилия"
-                                        className="auth-form__field"
-                                    />
-                                    <RegisterFormField
-                                        name="password"
-                                        type="password"
-                                        placeholder="Пароль"
-                                        className="auth-form__field"
-                                    />
-                                    <RegisterFormField
-                                        name="passwordRepeat"
-                                        type="password"
-                                        placeholder="Повторите пароль"
-                                        className="auth-form__field"
-                                    />
-                                    <button className="auth-form__button" type="submit" >Зарегистрироваться</button>
-                                </Form>
+                                {({ isSubmitting }) => (
+                                    <Form>
+                                        <RegisterFormField
+                                            name="email"
+                                            type="email"
+                                            placeholder="E-mail"
+                                            className="auth-form__field"
+                                        />
+                                        <RegisterFormField
+                                            name="firstName"
+                                            type="text"
+                                            placeholder="Ваше имя"
+                                            className="auth-form__field"
+                                        />
+                                        <RegisterFormField
+                                            name="lastName"
+                                            type="text"
+                                            placeholder="Ваша фамилия"
+                                            className="auth-form__field"
+                                        />
+                                        <RegisterFormField
+                                            name="password"
+                                            type="password"
+                                            placeholder="Пароль"
+                                            className="auth-form__field"
+                                        />
+                                        <RegisterFormField
+                                            name="passwordRepeat"
+                                            type="password"
+                                            placeholder="Повторите пароль"
+                                            className="auth-form__field"
+                                        />
+                                        <button className="auth-form__button" type="submit" disabled={isSubmitting}  >Зарегистрироваться</button>
+                                    </Form>
+                                )}
                             </Formik>
-                            <Link to='/login' className="auth__link">Войти в аккаунт</Link>
+                            <Link to='/signin' className="auth__link">Войти в аккаунт</Link>
                         </div>
                     )}
             </div>

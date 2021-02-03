@@ -4,6 +4,7 @@ import { FormikHelpers } from 'formik'
 import { default as RegisterFormBase } from '../components/RegisterForm';
 import { userAPI } from '../../../utils/api';
 import { openNotification } from '../../../utils';
+import { useHistory } from 'react-router-dom';
 
 
 export type RegisterPostData = {
@@ -28,6 +29,7 @@ type Status = {
 
 const RegisterForm: React.FC = () => {
 
+    const history = useHistory();
     const success = false;
 
     const patterns = {
@@ -91,7 +93,8 @@ const RegisterForm: React.FC = () => {
                     text: status?.message,
                     type: status?.type,
                 });
-                if(status?.state !== "Ошибка") window.history.pushState(null, "", "/signin")
+                if(status?.state !== "Ошибка") history.push("/signin");
+                // if(status?.state !== "Ошибка") window.history.pushState(null, "", "/signin")
             })
     };
 
