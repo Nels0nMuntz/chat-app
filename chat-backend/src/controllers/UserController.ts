@@ -5,8 +5,16 @@ import { createJWToken } from '../utils'
 import { ILoginData } from './../utils/jwt/createJWToken';
 import { validationResult } from 'express-validator';
 import { IUser } from './../models/User';
+import { Server } from 'socket.io';
 
 class UserController {
+
+    io: Server
+
+    constructor(io: Server){
+        this.io = io
+    }
+
     index(req: express.Request, res: express.Response) {
         const id: string = req.params.id;
         UserModel.findById(id)

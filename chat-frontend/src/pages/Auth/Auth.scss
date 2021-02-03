@@ -119,6 +119,9 @@
           font-weight: 700;
           border-radius: 4px;
           background: #4ca5ff;
+          &:disabled{
+            background: #c0c0c0;
+          }
         } 
           
         .auth__link{
