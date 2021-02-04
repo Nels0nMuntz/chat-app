@@ -28,7 +28,7 @@ const LoginForm = () => {
         return errors;
     };
 
-    const handleSubmit = (values, { setStatus, setSubmitting }) => {
+    const handleSubmit = (values, { setSubmitting }) => {
         const postData = {
             login: values.userEmail,
             password: values.userPassword,
@@ -36,11 +36,12 @@ const LoginForm = () => {
         let status = null;
         return axios.post("/user/login", postData)
             .then(({ data }) => {
-                console.log(data);
+                status = {
+                    state: "Success",
+                };
                 if(data.token){
                     storage.setToken(data.token)
                     axios.defaults.headers["token"] = storage.getToken();
-                    dispatch(setAuthStatus(true))
                 }else{
                     throw new Error("Server response does not contain JWT token");
                 }                
@@ -57,7 +58,10 @@ const LoginForm = () => {
                     type: "error",
                 })
             })
-            .finally(() => setSubmitting(false))
+            .finally(() => {
+                setSubmitting(false)
+                if(status.state === "Success")  dispatch(setAuthStatus(true))
+            })
     };
 
     return (

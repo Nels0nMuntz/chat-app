@@ -3,7 +3,8 @@ import validator from 'validator';
 import { generateHash } from '../utils';
 export interface IUser extends Document{
     email: string;
-    fullname: string;
+    firstName: string;
+    lastName: string;
     password: string;
     password_hash: string,
     confirmed: boolean;
@@ -16,11 +17,14 @@ const UserSchema = new Schema(
     {
         email: {
             type: String,
-            required: 'Email address is required',
-            validate: [validator.isEmail, 'Invalid email'],
+            required: true,
             index: { unique: true }
         },
-        fullname: {
+        firstName: {
+            type: String,
+            required: true
+        },
+        lastName: {
             type: String,
             required: true
         },
@@ -33,11 +37,9 @@ const UserSchema = new Schema(
         },
         confirmed: {
             type: Boolean,
+            default: false,
         },
-        confirm_hash: {
-            type: String,
-            default: ''
-        },
+        confirm_hash: String,
         avatar: String,
         last_seen: {
             type: Date,

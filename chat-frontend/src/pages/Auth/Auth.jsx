@@ -13,11 +13,10 @@ const Auth = () => {
     return (
         <section className="auth">
             <div className="auth__container">
-                {/* <Route exact path={["/", "/login"]} component={LoginForm} /> */}
-                <Route exact path={["/", "/login"]}>
+                <Route exact path={["/", "/signin"]}>
                     {isAuth ? <Redirect to="im"/> : <LoginForm/>}
                 </Route>
-                <Route exact path={["/register"]} component={RegisterForm} />
+                <Route exact path={["/signup"]} component={RegisterForm} />
             </div>
         </section>
     )

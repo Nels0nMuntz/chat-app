@@ -21,24 +21,39 @@ class UserController {
             .then((doc: IUser) => res.json(doc))
             .catch(() => res.status(404).send('User Not Found'))
     }
-    create(req: express.Request, res: express.Response) {
-        const postData = {
+    create = (req: express.Request, res: express.Response): void => {
+
+        const postData: {
+            email: string,
+            firstName: string,
+            lastName: string,
+            password: string,
+        } = {
             email: req.body.email,
-            fullname: req.body.fullname,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             password: req.body.password,
         };
+
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            res.status(422).json({ message: "Post request data validation ended up with errors", errors: errors.array() });
+            return;
+        };
+
         const user = new UserModel(postData);
         user.save()
-            .then(doc => res.json(doc))
-            .catch(reason => res.json(reason))
+            .then((doc: IUser) => res.status(200).json({ message: "New user account created successfully", data: doc }))
+            .catch(reason => res.status(500).json({ message: "Creating of new user account end up with error", details: reason }))
     }
     delete(req: express.Request, res: express.Response) {
         const id: string = req.params.id;
         UserModel.findByIdAndDelete(id)
-            .then((doc: IUser) => { if (doc) return res.json({ message: `User ${doc.fullname} removed` }) })
+            .then((doc: IUser) => { if (doc) return res.json({ message: `User ${doc.firstName} ${doc.lastName} removed` }) })
             .catch((err: any) => res.status(404).json({ massege: "Nor Found", reason: err }))
     }
-    login(req: express.Request, res: express.Response) {
+    login = (req: express.Request, res: express.Response): void => {
+
         const postData: {
             email: string,
             password: string,
@@ -49,7 +64,8 @@ class UserController {
 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(422).json({ errors: errors.array() });
+            res.status(422).json({ errors: errors.array() });
+            return;
         };
 
         UserModel.findOne({ email: postData.email }, (err: any, user: IUser) => {

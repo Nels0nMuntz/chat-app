@@ -3,6 +3,7 @@ import { Server } from "socket.io";
 import { UserController, DialogController, MessageController } from "../controllers";
 import bodyParser from 'body-parser';
 import { updateLastSeen, checkAuth } from "../middlewares";
+import { signinValidation, signupValidation } from "../utils";
 
 const createRoutes = (app: express.Application, io: Server) => {
     const userController = new UserController(io);
@@ -15,9 +16,9 @@ const createRoutes = (app: express.Application, io: Server) => {
 
     app.get("/user/me", userController.getMe);
     app.get("/user/:id", userController.index);
-    app.post("/user/regist", userController.create);
+    app.post("/user/signup", signupValidation, userController.create);
     app.delete("/user/:id", userController.delete);
-    app.post("/user/login", userController.login);
+    app.post("/user/signin", signinValidation, userController.login);
 
     app.get("/dialog/:id", dialogController.index);
     app.post("/dialog", dialogController.create);

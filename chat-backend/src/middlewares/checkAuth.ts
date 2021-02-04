@@ -2,7 +2,7 @@ import express from 'express';
 import { verifyJWTToken } from '../utils';
 
 const checkAuth = (req: express.Request, res: express.Response, next: express.NextFunction): void => {
-    if (req.path === '/user/login' || req.path === '/user/regist') return next();
+    if (req.path === '/user/signin' || req.path === '/user/signup') return next();
         
     const token = req.headers.token;
     if(typeof token === 'string'){

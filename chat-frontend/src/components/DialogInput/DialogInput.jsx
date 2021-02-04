@@ -46,7 +46,7 @@ const DialogInput = () => {
                 ]}
             placeholder="Введите текст сообщения…"
             style={{ outline: "none" }}
-            autoSize={true}
+            autosize="true"
             ref={input}
         />
     )

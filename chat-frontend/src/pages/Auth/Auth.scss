@@ -53,7 +53,6 @@
 
           .auth-form__field {
             position: relative;
-            padding: 0 40px 0 15px;
             width: 100%;
             height: 56px;
             font-size: 16px;
@@ -61,6 +60,10 @@
             background: #ffffff;
             border: 1px solid #dddddd;
             border-radius: 5px;
+
+            & > input{
+              font-size: 16px;
+            }
 
             &::placeholder {
               color: #b4b4b4;
@@ -76,12 +79,8 @@
           }
 
           .auth-form__field-icon {
-            position: absolute;
             display: block;
             content: "";
-            top: 50%;
-            right: 15px;
-            transform: translateY(-20px);
             width: 20px;
             height: 20px;
             border-radius: 50%;
