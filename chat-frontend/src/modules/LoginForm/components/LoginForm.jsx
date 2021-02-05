@@ -36,7 +36,7 @@ const LoginForm = ({ validate, handleSubmit }) => {
                                     placeholder="Пароль"
                                     className="auth-form__field"
                                 />
-                                <button className="auth-form__button" type="submit" disabled={isSubmitting} >Войти в аккаунт</button>
+                                <button className="auth-form__button" type="submit" disabled={isSubmitting}>Войти  в аккаунт</button>
                             </Form>
                         )}
                     </Formik>

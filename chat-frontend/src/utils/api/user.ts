@@ -10,6 +10,9 @@ const userAPI = {
     },
     login: (postData: LoginPostData): Promise<AxiosResponse<any>> => {
         return axios.post("/user/signin", postData)
+    },
+    verify: (hash: string): Promise<AxiosResponse<any>> => {
+        return axios.get(`/user/verify?hash=${hash}`)
     }
 };
 

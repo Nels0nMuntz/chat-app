@@ -58,7 +58,7 @@ class UserController {
             email: string,
             password: string,
         } = {
-            email: req.body.login,
+            email: req.body.email,
             password: req.body.password,
         };
 
@@ -89,6 +89,24 @@ class UserController {
             res.status(200).json(user)
         });
 
+    }
+    verify = (req: express.Request, res: express.Response): void => {
+
+        const hash: string | null = typeof req.query.hash === "string" ? req.query.hash : null;
+        
+        if(!hash){
+            res.status(422).json({message: "Provided conformation hash is invalid"});
+        }else{
+            UserModel.findOneAndUpdate({confirm_hash: hash}, {$set: {confirmed: true}}, null, (err: any, doc: IUser | null): void => {
+                if(err){
+                    res.status(500).json({ status: "error", message: "Updating user data faild", details: err });
+                }else if(!doc){
+                    res.status(404).json({ status: "error", message: "User not found by provided hash" });
+                }else{
+                    res.status(200).json({ status: "success" });
+                }
+            })
+        };
     }
 }
 

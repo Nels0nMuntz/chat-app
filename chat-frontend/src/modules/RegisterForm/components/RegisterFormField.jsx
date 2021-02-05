@@ -7,6 +7,9 @@ const RegisterFormField = (props) => {
 
     const [field, meta] = useField(props);
 
+    // console.log(meta.touched);
+    // console.log(meta.error);
+
     return (
         <div className="auth-form__field-wrapper">
             <Input

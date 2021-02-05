@@ -57,7 +57,14 @@ UserSchema.pre<IUser>('save', function(next) {
     generateHash(user.password)
         .then(hash => {
             user.password_hash = String(hash);
-            next();
+        })
+        .then(() => {
+            generateHash(user.email)
+            .then(confirm_hash => {
+                user.confirm_hash = String(confirm_hash);
+                next();
+            })
+            .catch(err => next(err))
         })
         .catch(err => next(err))
 });

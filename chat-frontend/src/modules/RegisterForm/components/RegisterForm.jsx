@@ -5,14 +5,16 @@ import { Link } from 'react-router-dom';
 import { InfoCircleTwoTone } from '@ant-design/icons';
 
 
-const RegisterForm = ({ success, validate, handleSubmit }) => {
+const RegisterForm = ({ validate, handleSubmit, success }) => {
 
     return (
         <div className="auth__wrapper">
-            <div className="auth__header">
-                <h1>Регистрация</h1>
-                <p>Для входа в чат, вам нужно зарегистрироваться</p>
-            </div>
+            {!success ? (
+                <div className="auth__header">
+                    <h1>Регистрация</h1>
+                    <p>Для входа в чат, вам нужно зарегистрироваться</p>
+                </div>
+            ) : null}
             <div className="auth__form">
                 {success ? (
                     <div className="auth-form__success-wrapper register-success">

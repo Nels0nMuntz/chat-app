@@ -27,10 +27,10 @@ const LoginForm = () => {
 
         const errors: LoginFormErrors = {};
 
-        for (let key in Object.entries(values)) {
+        for (let key in values) {
             if (!values[key as keyof LoginPostData]) errors[key] = 'Поле обязательное для заполнения'
         };
-        if (values["email"] && !patterns.email.test(values["email"])) errors["email"] = 'Неверный формат E-mail';
+        if (values["email"] && !patterns.email.test(values["email"])) errors["email"] = 'Неверный формат E-mail';     
 
         return errors;
     };
@@ -61,7 +61,7 @@ const LoginForm = () => {
                 status = {
                     type: "error",
                     title: "Ошибка",
-                    text: "Возникла ошибка при авторизации. Повторите попытку"
+                    text: "Неверно указан адрес электронной почты или пароль"
                 };
                 openNotification({
                     title: status.title,
@@ -71,7 +71,7 @@ const LoginForm = () => {
             })
             .finally(() => {
                 setSubmitting(false)
-                if(status?.type === "error")  dispatch(setAuthStatus(true))
+                if(status?.type !== "error")  dispatch(setAuthStatus(true))
             })
     };
 

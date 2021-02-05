@@ -3,10 +3,13 @@ import { useField } from 'formik'
 import { Input } from 'antd';
 
 
-const LoginFormField = ({ ...props }) => {
+const LoginFormField = (props) => {
 
     const [field, meta] = useField(props);
     const faild = meta.error && meta.touched ? true : false;
+
+    // console.log(meta.touched);
+    // console.log(meta.error);
 
     return (
         <div className="auth-form__field-wrapper">

@@ -4,7 +4,6 @@ import { FormikHelpers } from 'formik'
 import { default as RegisterFormBase } from '../components/RegisterForm';
 import { userAPI } from '../../../utils/api';
 import { openNotification } from '../../../utils';
-import { useHistory } from 'react-router-dom';
 
 
 export type RegisterPostData = {
@@ -28,9 +27,8 @@ type Status = {
 }
 
 const RegisterForm: React.FC = () => {
-
-    const history = useHistory();
-    const success = false;
+    
+    const [isChecked, setIsChecked] = React.useState(false);
 
     const patterns = {
         password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=(.*[a-zA-Z]){4}).{8,20}$/,
@@ -57,7 +55,7 @@ const RegisterForm: React.FC = () => {
         if (!(values["passwordRepeat"] && values["password"] && !errors["userPassword"] && values["passwordRepeat"] === values["password"])) {
             errors["passwordRepeat"] = 'Пароли не совпадают';
         };
-
+        
         return errors;
     };
 
@@ -80,9 +78,17 @@ const RegisterForm: React.FC = () => {
             })
             .catch(err => {
                 console.log(err);
+                let message = "";
+                
+                if(err?.response?.data?.details?.code === 11000){
+                    message = "Поьзователь с указанным адресом электронной почты уже существует."
+                }else{
+                    message = "Возникла ошибка при регистрации. Повторите попытку."
+                }
+                
                 status = {
                     state: StatusState.Faild,
-                    message: err.response.data.message,
+                    message: message,
                     type: "error",
                 };
             })
@@ -93,14 +99,13 @@ const RegisterForm: React.FC = () => {
                     text: status?.message,
                     type: status?.type,
                 });
-                if(status?.state !== "Ошибка") history.push("/signin");
-                // if(status?.state !== "Ошибка") window.history.pushState(null, "", "/signin")
+                if(status?.type === "success") setIsChecked(true);                
             })
     };
 
     return (
         <RegisterFormBase
-            success={success}
+            success={isChecked}
             validate={validate}
             handleSubmit={handleSubmit}
         />
