@@ -1,16 +1,24 @@
 import express from 'express'
-import { DialogModel } from '../models';
+import { DialogModel, UserModel } from '../models';
 import { IDialog } from '../models/Dialog';
+import { IUser } from '../models/User';
 
 class DialogController {
     async index(req: express.Request, res: express.Response) {
-        const id = req.params.id;
-        try {
-            let dialog = await DialogModel.findOne({ author: id }).populate(["author", "partner"]);
-            res.status(200).json(dialog)
-        } catch (err) {
-            res.status(404).json({ message: 'Dialog not found', reason: err })
-        }
+
+        const userEmail: string = req.decodedToken.email;
+
+        UserModel.findOne({ email: userEmail }, "_id", null, (err: any, doc: IUser | null) => {
+            if(err || !doc) res.status(404).json({ message: "Getting list of dialogs faild. User not found" });
+            const id = doc?._id
+            DialogModel.find()
+                .or([{ author: id }, { partner: id }])
+                .populate(['author', 'partner', 'lastMessage'])
+                .exec((err: any, dialogs: IDialog[]) => {
+                    if(err || !dialogs) res.status(404).json({ message: "Dialogs not found", details: err })
+                    res.status(200).json(dialogs)
+                })
+        })
     }
     create(req: express.Request, res: express.Response) {
         const postData = {

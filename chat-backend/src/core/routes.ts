@@ -21,7 +21,7 @@ const createRoutes = (app: express.Application, io: Server) => {
     app.get("/user/:id", userController.index);
     app.delete("/user/:id", userController.delete);
 
-    app.get("/dialog/:id", dialogController.index);
+    app.get("/dialogs", dialogController.index);
     app.post("/dialog", dialogController.create);
     app.delete("/dialog/:id", dialogController.delete);
 

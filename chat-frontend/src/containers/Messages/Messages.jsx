@@ -13,7 +13,7 @@ const Messages = () => {
     const currentDialogId = useSelector(state => state.dialogs.currentDialog);
     const isFetching = useSelector(state => state.messages.isFetchingMessages);
 
-    React.useEffect(() => currentDialogId && dispatch(messagesActions.fetchMessages(currentDialogId)), [currentDialogId, dispatch])
+    React.useEffect(() => currentDialogId && dispatch(messagesActions.fetchMessages(currentDialogId)), [currentDialogId, dispatch]);
 
     if (isFetching || !dialogs) return <Preloader />;
     if (messages) {

@@ -1,9 +1,10 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-interface IMessage extends Document{
-    text: string;
-    dialog: string;
-    unread: boolean;
+export interface IMessage extends Document{
+    text: string
+    dialogId: string
+    userId: string
+    read: boolean
 };
 
 const MessageSchema = new Schema(
@@ -12,12 +13,17 @@ const MessageSchema = new Schema(
             type: String,
             required: true,
         },
-        dialog: {
+        dialogId: {
             type: Schema.Types.ObjectId,
             ref: "Dialog",
             required: true,
         },
-        unread: {
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
+        },
+        read: {
             type: Boolean,
             default: false,
         },

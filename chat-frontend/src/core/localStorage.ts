@@ -6,12 +6,13 @@ class LocalStorage {
     }
 
     public setToken(token: string): void {
-        this.token = token
+        this.token = token;
+        localStorage.removeItem("token");
         localStorage.setItem("token", this.token);
     }
 
     public getToken(): string {
-        return localStorage.getItem("token") || ""
+        return localStorage.getItem("token") || "";
     }
 };
 

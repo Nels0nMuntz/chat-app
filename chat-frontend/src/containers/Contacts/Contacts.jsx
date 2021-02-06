@@ -10,13 +10,13 @@ const Contacts = () => {
     const dialogs = useSelector(state => state.dialogs.items);
     const isFetching = useSelector(state => state.dialogs.isFetchingDialogs);
     const currentDialogId = useSelector(state => state.dialogs.currentDialog);
-    React.useEffect(() =>  !dialogs && dispatch(dialogsActions.fetchDialogs()), []);
+    React.useEffect(() => !dialogs && dispatch(dialogsActions.fetchDialogs()), [dialogs, dispatch]);
     const onClickDialog = id => dispatch(dialogsActions.setCurrentDialog(id));
 
-    if(isFetching) return <Preloader/>;
+    if (isFetching) return <Preloader />;
 
     return (
-        <ContactsBase 
+        <ContactsBase
             dialogs={dialogs}
             currentDialogId={currentDialogId}
             onClickDialog={onClickDialog}

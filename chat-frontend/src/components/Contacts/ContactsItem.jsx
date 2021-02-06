@@ -10,13 +10,15 @@ import './Contacts.scss';
 
 const getMessageTime = date => {
     const time = new Date(date);
+    console.log(time);
+    // const time = date;
     if (isToday(time)) return format(time, "hh:mm")
     return format(time, "dd.mm.yyyy")
 }
 
 const ContactsItem = ({ dialog, isActive, onClickDialog }) => {
 
-    const time = React.useMemo(() => getMessageTime(dialog.created_at), [dialog.created_at]);
+    const time = React.useMemo(() => getMessageTime(dialog.createdAt), [dialog.createdAt]);
     const onClickItem = () => { onClickDialog(dialog._id) };
 
     return (

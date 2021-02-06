@@ -1,5 +1,5 @@
 import express from 'express'
-import { MessageModel } from '../models';
+import { MessageModel, DialogModel } from '../models';
 
 class MessageController {
     index = async (req: express.Request, res: express.Response) => {
@@ -26,20 +26,33 @@ class MessageController {
         }
     }
     create = (req: express.Request, res: express.Response) => {
-        const postData = {
+
+        const postData: {
+            text: string
+            dialogId: string
+        } = {
             text: req.body.text,
-            dialog: req.body.dialog_id,
+            dialogId: req.body.dialogId,
         };
+
         const message = new MessageModel(postData);
         message.save()
-            .then(message => res.status(200).json(message))
-            .catch(err => res.status(404).json({ message: 'Message not found', error: err }))
+            .then(message => {
+                DialogModel.findOneAndUpdate(
+                    { _id: postData.dialogId },
+                    { lastMessage: message.id },
+                    { upsert: true },
+                    (err: any) => err && res.status(500).json({ message: "Updating DialogModel property 'lastMessage' faild. New message entity not created", details: err })
+                )
+                res.status(200).json(message)
+            })
+            .catch(err => res.status(500).json({ message: 'Message not created', error: err }))
     }
-    delete = (req: express.Request, res: express.Response) =>{
+    delete = (req: express.Request, res: express.Response) => {
         const id: string = req.params.id;
-        MessageModel.findByIdAndRemove({_id: id})
-            .then(() => res.status(200).json({message: "Messasge removed"}))
-            .catch((err: any) => res.status(404).json({message: "Message not found", reason: err}))
+        MessageModel.findByIdAndRemove({ _id: id })
+            .then(() => res.status(200).json({ message: "Messasge removed" }))
+            .catch((err: any) => res.status(404).json({ message: "Message not found", reason: err }))
     }
 };
 

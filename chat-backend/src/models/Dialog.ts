@@ -3,7 +3,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 export interface IDialog extends Document {
     partner: string;
     author: string;
-    messages: string;
+    lastMessage: string;
 };
 
 const DialogSchema = new Schema(
