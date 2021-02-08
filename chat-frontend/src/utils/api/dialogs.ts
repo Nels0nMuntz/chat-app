@@ -1,10 +1,9 @@
 import { axios } from "../../core";
+import { Dialog } from "../../redux/dialogs/types";
 
 const dialogsApi = {
-    getAll: () => axios.get("/dialogs")
-        .then(response => {
-            if(response.status === 200) return response.data
-        })
+    getAll: () => axios.get<Array<Dialog>>("/dialogs")
+        .then(response => response.data)
 };
 
 export default dialogsApi;

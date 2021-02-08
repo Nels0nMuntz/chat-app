@@ -10,7 +10,7 @@ import playBtn from './../../assets/images/play-btn.svg'
 import pauseBtn from './../../assets/images/pause-btn.svg'
 
 
-const Message = ({ text, created_at, user, audio, attachments, isReaded, isOwn, isTyping}) => {
+const Message = ({ text, createdAt, user, audio, attachments, isReaded, isOwn, isTyping}) => {
     return (
         <div className={classnames(
             "message",

@@ -1,7 +1,7 @@
 import { InitialState, Action } from "./types"
 
 const initialState: InitialState = {
-    items: [],
+    items: null,
     currentDialogId: null,
     isFetchingDialogs: false,
 };

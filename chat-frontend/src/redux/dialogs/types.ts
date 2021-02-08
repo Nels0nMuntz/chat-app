@@ -28,7 +28,7 @@ export type Dialog = {
 }
 
 export type InitialState = {
-    items: Array<Dialog>,
+    items: Array<Dialog> | null,
     currentDialogId: string | null,
     isFetchingDialogs: boolean,
 }
