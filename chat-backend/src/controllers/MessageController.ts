@@ -6,7 +6,7 @@ class MessageController {
         const dialogId: any = req.query.dialog;
         try {
             if (typeof dialogId !== 'string') throw new TypeError("Type of query string parameter 'dialog' should be 'string' but got other");
-            let dialog = await MessageModel.find({ dialog: dialogId }).populate(["dialog"]);
+            let dialog = await MessageModel.find({ dialogId: dialogId }, { __v: 0 });
             res.status(200).json(dialog)
         } catch (err) {
             let error: {
