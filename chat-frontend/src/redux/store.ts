@@ -1,6 +1,5 @@
-import { Action } from 'redux'
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
-import thunk, { ThunkAction } from 'redux-thunk';
+import thunk from 'redux-thunk';
 import dialogs from './dialogs/reducer';
 import user from './user/reducer';
 import messages from './messages/reducer';

@@ -25,12 +25,7 @@ const Messages: React.FC = () => {
         return !!dialogs.length ? <Empty description="Откройте диалог" style={{ height: '100%' }} /> : <Empty description="Создайте диалог" style={{ height: '100%' }} />
     };
 
-    return !!messages.length ? <MessagesBase messages={messages} /> : <Empty description="Начните диалог" style={{ height: '100%' }} />
-
-    // if (messages) {
-    //     return !!messages.length ? <MessagesBase messages={messages} /> : <Empty description="Начните диалог" style={{ height: '100%' }} />
-    // }
-    
-}
+    return !!messages.length ? <MessagesBase messages={messages} /> : <Empty description="Начните диалог" style={{ height: '100%' }} />;    
+};
 
 export default Messages;

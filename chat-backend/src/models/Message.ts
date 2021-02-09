@@ -3,7 +3,7 @@ import mongoose, { Document, Schema } from 'mongoose';
 export interface IMessage extends Document{
     text: string
     dialogId: string
-    userId: string
+    createdBy: string
     read: boolean
 };
 
@@ -18,7 +18,7 @@ const MessageSchema = new Schema(
             ref: "Dialog",
             required: true,
         },
-        userId: {
+        createdBy: {
             type: Schema.Types.ObjectId,
             ref: "User",
             required: true,

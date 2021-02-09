@@ -13,14 +13,14 @@ const Contacts: React.FC = () => {
     const isFetching = useSelector((state: RootState) => state.dialogs.isFetchingDialogs);
     const currentDialogId = useSelector((state: RootState) => state.dialogs.currentDialogId);
     React.useEffect(() => {
-        if(!dialogs.length) dispatch(fetchDialogs())
+        if(!dialogs) dispatch(fetchDialogs())
     }, [dialogs, dispatch]);
     const onClickDialog = (id: string): void => {
         if(currentDialogId === id) return;
         dispatch(changeCurrentDialog(id));
     };
 
-    if (isFetching) return <Preloader />;
+    if (isFetching || !dialogs) return <Preloader />;
 
     return (
         <ContactsBase

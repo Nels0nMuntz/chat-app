@@ -9,13 +9,22 @@ type Props = {
 }
 
 const Messages: React.FC<Props> = ({ messages }) => {
-    
-    return messages.map((item, index) => (
-        <div className="message-wrapper" key={item._id}>
-            {console.log(item)}
-            <Message {...item} />
-        </div>
-    ))
+
+    return (
+        <React.Fragment>
+            {messages.map((item, index) => (
+            <div className="message-wrapper" key={item._id}>
+                <Message
+                    {...item}
+                    audio={null}
+                    attachments={null}
+                    isOwn={null}
+                    isTyping={null}
+                />
+            </div>
+        ))}
+        </React.Fragment>
+    )
 };
 
 export default Messages

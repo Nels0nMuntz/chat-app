@@ -37,7 +37,10 @@ const ContactsItem: React.FC<Props> = ({ dialog, onClickDialog, isActive }) => {
             onClick={onClickItem}
         >
             <div className="contact__avatar">
-                <Avatar user={dialog.partner} />
+                <Avatar
+                    firstName={dialog.partner.firstName}
+                    avatar={dialog.partner.avatar}
+                />
             </div>
             <div className="contact__info">
                 <div className="contact__row">
