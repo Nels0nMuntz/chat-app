@@ -1,14 +1,14 @@
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import dialogs from './reducers/dialogs';
-import messages from './reducers/messages';
+import dialogs from './dialogs/reducer';
 import user from './user/reducer';
+import messages from './reducers/messages';
 
 const rootReducer = combineReducers({
     dialogs,
+    user,
     messages,
-    user
-})
+});
 
 // @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

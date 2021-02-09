@@ -30,9 +30,11 @@ class MessageController {
         const postData: {
             text: string
             dialogId: string
+            userId: string
         } = {
             text: req.body.text,
             dialogId: req.body.dialogId,
+            userId: req.body.userId
         };
 
         const message = new MessageModel(postData);

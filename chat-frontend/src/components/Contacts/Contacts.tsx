@@ -1,12 +1,18 @@
 import React from 'react';
 import { Empty } from 'antd';
+import { Dialog } from '../../redux/dialogs/types'
 
 import ContactsItem from './ContactsItem';
 
 import './Contacts.scss'
 
+type Props = {
+    dialogs: Array<Dialog>,
+    currentDialogId: string | null,
+    onClickDialog: (id: string) => void
+}
 
-const Contacts = ({ dialogs, currentDialogId, onClickDialog }) => { 
+const Contacts: React.FC<Props> = ({ dialogs, currentDialogId, onClickDialog }) => { 
 
     return (
         <ul className="contacts__list">
@@ -14,8 +20,8 @@ const Contacts = ({ dialogs, currentDialogId, onClickDialog }) => {
                 <li>
                     <ContactsItem 
                         dialog={item} 
-                        onClickDialog={onClickDialog} 
                         isActive={currentDialogId === item._id}
+                        onClickDialog={onClickDialog}
                     />
                 </li>
             )) : (

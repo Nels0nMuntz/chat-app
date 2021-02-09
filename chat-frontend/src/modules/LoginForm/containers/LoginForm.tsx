@@ -49,12 +49,12 @@ const LoginForm = () => {
                 status = {
                     type: "success",
                 };
-                if(data.token){
-                    storage.setToken(data.token)
-                    axios.defaults.headers["token"] = storage.getToken();
-                }else{
-                    throw new Error("Server response does not contain JWT token :(");
-                }                
+                // if(data.token){
+                //     storage.setToken(data.token)
+                //     axios.defaults.headers["token"] = storage.getToken();
+                // }else{
+                //     throw new Error("Server response does not contain JWT token :(");
+                // }                
             })
             .catch(err => {
                 console.log(err);                

@@ -1,13 +1,3 @@
-// import tinycolor from "tinycolor2";
- 
-// const generateAvatar = hash => {
-//     const [r, g, b] = hash.substr(0,3).split();
-//     const color = tinycolor({r, g, b});
-//     return color
-// };
-
-// export default  generateAvatar;
-
 const stringToColor = function stringToColor(str) {
     let hash = 0;
     let color = '#';
@@ -28,10 +18,6 @@ const stringToColor = function stringToColor(str) {
     return color;
 };
 
-const generateAvatar = fullname => stringToColor(fullname);
+const generateAvatar = userName => stringToColor(userName);
 
 export default  generateAvatar;
-
-// const name = 'Михаил';
-// const letter = name[0];
-// const backgroundColor = stringToColor(name);

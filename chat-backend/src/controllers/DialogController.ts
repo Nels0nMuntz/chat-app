@@ -11,9 +11,11 @@ class DialogController {
         UserModel.findOne({ email: userEmail }, "_id", null, (err: any, doc: IUser | null) => {
             if(err || !doc) res.status(404).json({ message: "Getting list of dialogs faild. User not found" });
             const id = doc?._id
-            DialogModel.find()
+            DialogModel.find({}, '-__v')
                 .or([{ author: id }, { partner: id }])
-                .populate(['author', 'partner', 'lastMessage'])
+                .populate('author', ['_id', 'firstName', 'lastName', 'last_seen', 'avatar'])
+                .populate('partner', ['_id', 'firstName', 'lastName', 'last_seen', 'avatar'])
+                .populate('lastMessage', ['_id', 'read', 'text'])
                 .exec((err: any, dialogs: IDialog[]) => {
                     if(err || !dialogs) res.status(404).json({ message: "Dialogs not found", details: err })
                     res.status(200).json(dialogs)
