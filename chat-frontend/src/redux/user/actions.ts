@@ -1,3 +1,6 @@
-import { SetIsAuthAction } from "./types";
+import { IUser, SetIsAuthAction } from "./types";
 
-export const setIsAuth = (value: boolean): SetIsAuthAction => ({ type: "SET_IS_AUTH", payload: value });
+export const initUser = (isAuth: boolean, user: IUser): SetIsAuthAction => ({
+    type: "SET_IS_AUTH",
+    payload: { isAuth, user }
+});

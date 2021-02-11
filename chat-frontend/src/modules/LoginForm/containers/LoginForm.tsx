@@ -3,11 +3,12 @@ import { FormikHelpers } from 'formik';
 
 import { axios } from '../../../core'
 import { openNotification } from '../../../utils';
-import { setIsAuth } from '../../../redux/user/actions';
+import { initUser } from '../../../redux/user/actions';
 import { default as LoginFormBase } from '../components/LoginForm';
 import { storage } from '../../../core/localStorage';
 import { LoginFormErrors, LoginPostData, Status } from '../types';
 import { userAPI } from '../../../utils/api';
+import { IUser } from './../../../redux/user/types';
 
 
 
@@ -16,7 +17,7 @@ import { userAPI } from '../../../utils/api';
 const LoginForm = () => {
 
     const dispatch = useDispatch();
-    const setAuthStatus = (value: boolean) => setIsAuth(value);
+    const initUserHandler = (isAuth: boolean, userData: IUser) => initUser(isAuth, userData);
 
     const patterns = {
         password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=(.*[a-zA-Z]){4}).{8,20}$/,
@@ -48,20 +49,21 @@ const LoginForm = () => {
             .then(({ data }) => {
                 status = {
                     type: "success",
+                    userData: data.user
                 };
-                // if(data.token){
-                //     storage.setToken(data.token)
-                //     axios.defaults.headers["token"] = storage.getToken();
-                // }else{
-                //     throw new Error("Server response does not contain JWT token :(");
-                // }                
+                if(data.token){
+                    storage.setToken(data.token);
+                }else{
+                    throw new Error("Server response does not contain JWT token :(");
+                }                
             })
             .catch(err => {
                 console.log(err);                
                 status = {
                     type: "error",
                     title: "Ошибка",
-                    text: "Неверно указан адрес электронной почты или пароль"
+                    text: "Неверно указан адрес электронной почты или пароль",
+                    userData: null
                 };
                 openNotification({
                     title: status.title,
@@ -71,7 +73,7 @@ const LoginForm = () => {
             })
             .finally(() => {
                 setSubmitting(false)
-                if(status?.type !== "error")  dispatch(setAuthStatus(true))
+                if(status?.type === "success" && !!status.userData)  dispatch(initUserHandler(true, status.userData))
             })
     };
 

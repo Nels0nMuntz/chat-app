@@ -11,7 +11,6 @@ import { Dialog } from '../../redux/dialogs/types';
 
 const getMessageTime = (date: string): string => {
     const time = new Date(date);
-    console.log(time);
     // const time = date;
     if (isToday(time)) return format(time, "hh:mm")
     return format(time, "dd.mm.yyyy")
@@ -48,7 +47,7 @@ const ContactsItem: React.FC<Props> = ({ dialog, onClickDialog, isActive }) => {
                     <div className="contact__date flex-fixed">{time}</div>
                 </div>
                 <div className="contact__row">
-                    <div className="contact__text flex-flexible">{dialog.lastMessage.text}</div>
+                    <div className="contact__text flex-flexible">{dialog.lastMessage?.text}</div>
                     <div className="contact__check flex-fixed">9+</div>
                 </div>
             </div>

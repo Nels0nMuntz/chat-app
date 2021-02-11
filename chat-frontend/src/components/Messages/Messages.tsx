@@ -6,9 +6,14 @@ import './Messages.scss';
 
 type Props = {
     messages: Array<MessageType>
+    userId?: string
 }
 
-const Messages: React.FC<Props> = ({ messages }) => {
+const Messages: React.FC<Props> = ({ messages, userId }) => {
+
+    // console.log("Messages");
+    // console.log(messages);
+    
 
     return (
         <React.Fragment>
@@ -18,7 +23,7 @@ const Messages: React.FC<Props> = ({ messages }) => {
                     {...item}
                     audio={null}
                     attachments={null}
-                    isOwn={null}
+                    isOwn={item.createdBy._id === userId}
                     isTyping={null}
                 />
             </div>
@@ -27,4 +32,4 @@ const Messages: React.FC<Props> = ({ messages }) => {
     )
 };
 
-export default Messages
+export default React.memo(Messages);

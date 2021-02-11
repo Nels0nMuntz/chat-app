@@ -76,7 +76,17 @@ class UserController {
                     email: user.email
                 };
                 const token = createJWToken(loginData);
-                res.status(200).json({ success: true, token })
+                res.status(200).json({ 
+                    success: true, 
+                    token, 
+                    user: {
+                        id: user._id,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        email: user.email,
+                        avatar: user.avatar
+                    } 
+                })
             } else {
                 res.status(401).json({ message: "Validation failed. Given email or password aren't matching." })
             }

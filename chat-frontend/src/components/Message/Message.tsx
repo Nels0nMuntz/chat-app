@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import PropTypes from 'prop-types';
 
 import { Avatar, Check, Time } from '..';
 
@@ -21,7 +20,7 @@ type Props = {
     read: boolean
     audio: any
     attachments: any
-    isOwn: any
+    isOwn: boolean
     isTyping: any
 }
 
@@ -32,9 +31,10 @@ const Message: React.FC<Props> = ({
     read,
     audio = null,
     attachments = null,
-    isOwn = null,
+    isOwn,
     isTyping = null
-}) => {
+}) => {    
+
     return (
         <div className={classnames(
             "message",

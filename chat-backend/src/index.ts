@@ -1,8 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose'
-import bodyParser from 'body-parser';
-import { UserController, DialogController, MessageController } from './controllers';
-import { updateLastSeen, checkAuth } from './middlewares';
 import dotenv from 'dotenv'
 import { createServer } from "http";
 import cors from 'cors';

@@ -20,6 +20,7 @@ export type Message = {
         lastName: string
     }
     read: boolean
+    isOwn: boolean
 }
 
 export type FetchMessagesAction = {

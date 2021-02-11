@@ -18,32 +18,31 @@ const DialogInput = () => {
             className="dialog-input-wrapper"
             size="large"
             prefix={[
-                <SmileOutlined className="dialog-input__smile dialog-input__icon" onClick={changeEmojiVisibility} />,
-                <div className={classnames('dialog-input__emoji', emojiVisibility && 'dialog-input__emoji_visible')}>
-                    <Picker 
-                        set='apple' 
+                <SmileOutlined className="dialog-input__smile dialog-input__icon" onClick={changeEmojiVisibility} key={1} />,
+                <div className={classnames('dialog-input__emoji', emojiVisibility && 'dialog-input__emoji_visible')} key={2}>
+                    <Picker
+                        set='apple'
                         onSelect={emoji => console.log(emoji)}
                     />
                 </div>
-                // emojiVisibility ? <div className="dialog-input__emoji"><Picker set='apple' /></div> : null
             ]}
-            suffix={
-                [
-                    <AudioOutlined className="dialog-input__audio dialog-input__icon" />,
-                    <SendOutlined className="dialog-input__dsend dialog-input__icon" />,
-                    <UploadField
-                        onFiles={files => console.log(files)}
-                        containerProps={{
-                            className: 'camera-file'
-                        }}
-                        uploadProps={{
-                            accept: '.jpg, .jpeg, .png, .gif, .bmp',
-                            multiple: 'multiple'
-                        }}
-                    >
-                        <CameraOutlined className="dialog-input__camera dialog-input__icon" />
-                    </UploadField>
-                ]}
+            suffix={[
+                <AudioOutlined className="dialog-input__audio dialog-input__icon" key={1} />,
+                <SendOutlined className="dialog-input__dsend dialog-input__icon" key={2} />,
+                <UploadField
+                    onFiles={files => console.log(files)}
+                    containerProps={{
+                        className: 'camera-file'
+                    }}
+                    uploadProps={{
+                        accept: '.jpg, .jpeg, .png, .gif, .bmp',
+                        multiple: 'multiple'
+                    }}
+                    key={3}
+                >
+                    <CameraOutlined className="dialog-input__camera dialog-input__icon" key={4} />
+                </UploadField>
+            ]}
             placeholder="Введите текст сообщения…"
             style={{ outline: "none" }}
             autosize="true"
