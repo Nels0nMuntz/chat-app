@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import generateAvatar from '../../utils/generateAvatar/generateAvatar';
-import { User } from '../../redux/dialogs/types'
 
 const Wrapper = styled.div`
     position: relative;
@@ -27,21 +26,22 @@ const Wrapper = styled.div`
 `;
 
 type Props = {
-    user: User
+    firstName: string
+    avatar: string | undefined
 }
 
-const Avatar: React.FC<Props> = ({ user }) => {
+const Avatar: React.FC<Props> = ({ firstName, avatar }) => {
 
-    const hasAvatar = !!user.avatar;
+    const hasAvatar = !!avatar;
  
     return (
         <Wrapper
-            color={!hasAvatar ? generateAvatar(user.firstName) : undefined}
+            color={!hasAvatar ? generateAvatar(firstName) : undefined}
         >
             {hasAvatar ? (
-                <img className="circle-form" src={user.avatar} alt="avatar"/>
+                <img className="circle-form" src={avatar} alt="avatar"/>
             ) : (
-                <div className="circle-form"><span>{user.firstName[0]}</span></div>
+                <div className="circle-form"><span>{firstName[0]}</span></div>
             )}
             <span></span>
         </Wrapper>

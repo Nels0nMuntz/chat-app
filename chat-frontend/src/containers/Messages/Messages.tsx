@@ -12,6 +12,7 @@ const Messages: React.FC = () => {
     const dialogs = useSelector((state: RootState) => state.dialogs.items);
     const messages = useSelector((state: RootState) => state.messages.items);
     const currentDialogId = useSelector((state: RootState) => state.dialogs.currentDialogId);
+    const userId = useSelector((state: RootState) => state.user.user?.id)
     const isFetching = useSelector((state: RootState) => state.messages.isFetchingMessages);
 
     React.useEffect(() => {
@@ -21,16 +22,11 @@ const Messages: React.FC = () => {
 
     if (isFetching || !dialogs) return <Preloader />;
 
-    if(!!dialogs){
+    if(!!dialogs && !messages.length){
         return !!dialogs.length ? <Empty description="Откройте диалог" style={{ height: '100%' }} /> : <Empty description="Создайте диалог" style={{ height: '100%' }} />
     };
 
-    return !!messages.length ? <MessagesBase messages={messages} /> : <Empty description="Начните диалог" style={{ height: '100%' }} />
-
-    // if (messages) {
-    //     return !!messages.length ? <MessagesBase messages={messages} /> : <Empty description="Начните диалог" style={{ height: '100%' }} />
-    // }
-    
-}
+    return !!messages.length ? <MessagesBase messages={messages} userId={userId} /> : <Empty description="Начните диалог" style={{ height: '100%' }} />;    
+};
 
 export default Messages;

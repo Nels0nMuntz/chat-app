@@ -14,8 +14,13 @@ export type Message = {
     createdAt: string
     updatedAt: string
     dialogId: string
-    userId: string
-    unread: boolean
+    createdBy: {
+        _id: string
+        firstName: string
+        lastName: string
+    }
+    read: boolean
+    isOwn: boolean
 }
 
 export type FetchMessagesAction = {

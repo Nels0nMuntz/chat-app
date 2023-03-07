@@ -17,7 +17,7 @@ const Contacts: React.FC<Props> = ({ dialogs, currentDialogId, onClickDialog }) 
     return (
         <ul className="contacts__list">
             {!!dialogs.length ? dialogs.map(item => (
-                <li>
+                <li key={item._id}>
                     <ContactsItem 
                         dialog={item} 
                         isActive={currentDialogId === item._id}

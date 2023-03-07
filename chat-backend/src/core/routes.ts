@@ -7,8 +7,8 @@ import { signinValidation, signupValidation } from "../utils";
 
 const createRoutes = (app: express.Application, io: Server) => {
     const userController = new UserController(io);
-    const dialogController = new DialogController();
-    const messageController = new MessageController();
+    const dialogController = new DialogController(io);
+    const messageController = new MessageController(io);
 
     app.use(bodyParser.json());
     app.use(updateLastSeen);

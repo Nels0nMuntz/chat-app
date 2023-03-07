@@ -1,12 +1,20 @@
 import express from 'express'
 import { MessageModel, DialogModel } from '../models';
+import { Server } from 'socket.io';
 
 class MessageController {
+
+    io: Server
+
+    constructor(io: Server){
+        this.io = io
+    }
+    
     index = async (req: express.Request, res: express.Response) => {
         const dialogId: any = req.query.dialog;
         try {
             if (typeof dialogId !== 'string') throw new TypeError("Type of query string parameter 'dialog' should be 'string' but got other");
-            let dialog = await MessageModel.find({ dialogId: dialogId }, { __v: 0 });
+            let dialog = await MessageModel.find({ dialogId: dialogId }, { __v: 0 }).populate('createdBy', 'firstName avatar');
             res.status(200).json(dialog)
         } catch (err) {
             let error: {
@@ -30,11 +38,11 @@ class MessageController {
         const postData: {
             text: string
             dialogId: string
-            userId: string
+            createdBy: string
         } = {
             text: req.body.text,
             dialogId: req.body.dialogId,
-            userId: req.body.userId
+            createdBy: req.body.createdBy
         };
 
         const message = new MessageModel(postData);

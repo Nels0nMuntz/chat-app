@@ -125,7 +125,7 @@
   }
   .message__avatar {
     order: 1;
-    text-align: right;
+    justify-self: flex-end;
   }
   .message__content {
     .message__text {

@@ -1,7 +1,9 @@
 import { InitialState, Action } from "./types";
 
 const initialState: InitialState = {
-    isAuth: false
+    isAuth: false,
+    user: null,    
+    token: window.localStorage.token,
 };
 
 const reducer = (state: InitialState = initialState, action: Action): InitialState => {
@@ -9,7 +11,8 @@ const reducer = (state: InitialState = initialState, action: Action): InitialSta
         case "SET_IS_AUTH":
             return {
                 ...state,
-                isAuth: action.payload
+                isAuth: action.payload.isAuth,
+                user: action.payload.user
             }
         default:
             return state;
